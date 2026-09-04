@@ -288,5 +288,29 @@ Instead of hardcoding production constants prematurely, the Worker dynamically e
 **Express Coexistence:**
 The Express server `server/routes/feeds.ts` and `server/routes/sitemap.ts` remain completely untouched, serving cleanly in tandem with the Worker runtime.
 
+---
+
+## 14. Static Assets & SPA Fallback (Phase 9)
+
+Phase 9 integrates the built Vite React frontend natively into the Cloudflare Worker runtime via modern Cloudflare static assets (`env.ASSETS`).
+
+**Worker Request Routing Order:**
+To maintain absolute determinism and prevent static assets from masking valid API errors, the Worker executes strictly in this order:
+1. `GET /embed/:providerId` (Explicit static HTML rendered directly for embeds)
+2. `GET /api/*` (API handlers with early-exit 404s for invalid endpoints)
+3. Content Surfaces (`/api/feeds/*`, `/sitemap.xml`, `/robots.txt`)
+4. Static Assets via `env.ASSETS.fetch(request)`
+5. SPA Fallback via `env.ASSETS.fetch(request -> /index.html)` for extension-less paths (e.g. `/`, `/i/:id`, `/changelog`).
+6. Fallback `404 Not Found` string.
+
+**SPA Fallback Strategy:**
+If a request is not caught by the API or native asset bindings and lacks a file extension (e.g., `pathname.match(/\.[a-zA-Z0-9]+$/)` is false), the Worker transparently fetches `/index.html` via `ASSETS`. This correctly boots Wouter to handle deep-linked frontend URLs (like incident permalinks) directly in the client. Requests with file extensions (e.g. missing `.css` or `.png`) deliberately bypass SPA fallback, correctly yielding HTTP 404 to avoid HTML corruption in the DOM.
+
+**API 404 Protection:**
+The API prefix (`/api/`) acts as a hard boundary. If a request hits `/api/does-not-exist`, it explicitly short-circuits to an API-formatted 404 error and **never** hits the SPA fallback.
+
+**Static Asset Configuration:**
+Configured via `assets = { directory = "./dist", binding = "ASSETS" }` in `wrangler.toml`, relying entirely on Cloudflare's supported asset distribution mechanism.
+
 > [!WARNING]
-> Production deployment has **not** occurred yet. The Express backend remains perfectly usable for active development.
+> Production deployment has **not** occurred yet. The Express backend and Vercel configuration remain perfectly usable for active development.

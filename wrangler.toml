@@ -11,3 +11,7 @@ database_id = "placeholder-database-id"
 
 [triggers]
 crons = ["*/5 * * * *"]
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
