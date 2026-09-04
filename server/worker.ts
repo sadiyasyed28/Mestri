@@ -1,7 +1,8 @@
-import type { D1Database } from "@cloudflare/workers-types";
+import type { D1Database, ExecutionContext, ScheduledController } from "@cloudflare/workers-types";
 import { getWorkerStatus } from "./workerStatus";
 import { getWorkerIncidents, getWorkerIncident, refreshWorkerArchive } from "./workerIncidents";
 import { getWorkerSubscriptions, createWorkerSubscription, deleteWorkerSubscription } from "./workerNotifications";
+import { runMonitoringCycle } from "./cron";
 
 export interface Env {
   DB?: D1Database;
@@ -161,4 +162,18 @@ export default {
       headers: { "Content-Type": "text/plain; charset=utf-8" },
     });
   },
+
+  async scheduled(_controller: ScheduledController, env: Env, _ctx: ExecutionContext): Promise<void> {
+    if (!env.DB) {
+      console.error("Cron Error: D1 Database binding missing");
+      return;
+    }
+    
+    try {
+      const result = await runMonitoringCycle(env.DB);
+      console.log(`Monitoring cycle completed. Providers checked: ${result.providersChecked}, Successful: ${result.successful}, Failed: ${result.failed}, Transitions: ${result.transitions}, Webhooks attempted: ${result.notificationsAttempted}, Failed: ${result.notificationsFailed}`);
+    } catch (err: any) {
+      console.error("Monitoring cycle failed:", err.message);
+    }
+  }
 };

@@ -241,3 +241,31 @@ With D1 active for subscription persistence, the following operational metrics c
 - Total active subscriptions (`SELECT COUNT(*) FROM subscriptions`)
 - Subscriptions by channel (`SELECT channel, COUNT(*) FROM subscriptions GROUP BY channel`)
 - Subscriptions by provider (`SELECT provider_id, COUNT(*) FROM subscriptions GROUP BY provider_id`)
+
+---
+
+## 12. Cloudflare Cron Monitoring Engine (Phase 7)
+
+Phase 7 replaces `setInterval` based polling with a native Cloudflare `scheduled` handler triggered by `wrangler.toml`'s cron trigger (`*/5 * * * *`). 
+
+**Monitoring Cycle Data Flow:**
+1. **Trigger**: Cloudflare platform invokes the `scheduled` handler every 5 minutes.
+2. **Incidents**: The cycle first issues a safe refresh against upstream provider incident APIs (upserting into the `incidents` table).
+3. **Providers**: The engine iterates active providers, safely performing fetches and isolating upstream network timeouts without aborting the broader cycle.
+4. **Transition Detection**: It queries the exact `provider_state` from D1 to identify transitions. First observations are persisted but intentionally bypassed for notification to prevent startup webhook storms.
+5. **Persistence**: Current state is committed to `provider_state`. Snapshots are logged to `status_snapshots` mapping latency.
+6. **Notifications**: When a real transition happens (e.g., `operational` -> `degraded`), matching webhook subscriptions are loaded from the `subscriptions` table. Webhooks are dispatched synchronously but their errors are strictly caught, preventing one failing remote server from blocking the queue.
+
+**Duplicate Notification Prevention:**
+Because `provider_state` is the authoritative marker of the "previous" status, back-to-back 5-minute runs where a provider is constantly `degraded` will result in `isTransition = false`. Notifications are purely edge-triggered.
+
+**Concurrency/Race Considerations:**
+The Cloudflare platform guarantees singleton cron executions for a single script under normal conditions.
+
+**Derivable Real Metrics:**
+- Total successful/failed Cron cycles (via standard Cloudflare Worker logs)
+- Total snapshot timeline size (`SELECT COUNT(*) FROM status_snapshots`)
+- Webhook attempted and failed counts per cycle.
+
+> [!WARNING]
+> Production deployment has **not** occurred yet. The Cron trigger is configured logically but remains local. The Express backend remains perfectly usable for active development.

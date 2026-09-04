@@ -8,3 +8,6 @@ compatibility_flags = ["nodejs_compat"]
 binding = "DB"
 database_name = "mestri-db"
 database_id = "placeholder-database-id"
+
+[triggers]
+crons = ["*/5 * * * *"]
