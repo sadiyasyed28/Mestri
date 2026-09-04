@@ -145,3 +145,26 @@ The following schema is implemented for D1 (Phase 2):
 - **`incidents`**: Persistent incident archive (`id`, `provider_id`, `name`, `impact`, `status`, `created_at`, `updated_at`, `resolved_at`, `updates` JSON array).
 - **`subscriptions`**: Notification targets (`id`, `provider_id`, `channel`, `target`, `created_at`).
 - **`provider_state`**: Previous state records for transition detection and alerts (`provider_id`, `status`, `message`, `updated_at`).
+
+---
+
+## 8. Database Access Layer (Phase 3)
+
+The D1 database abstraction layer has been implemented at **`server/db/index.ts`**. 
+
+**Dependency Injection:** 
+The database connection is not global. Worker routes and cron jobs instantiate the DB layer by passing the Cloudflare `D1Database` binding environment variable:
+```typescript
+import { createDb } from "./db/index";
+const db = createDb(env.DB);
+```
+
+**Available Operations:**
+- **Providers**: `getProviders`, `getProvider`, `upsertProvider`
+- **Status Snapshots**: `saveStatusSnapshot`, `getStatusHistory`, `getLatestStatus`
+- **Incidents**: `getIncidents`, `getIncident`, `upsertIncident`
+- **Subscriptions**: `getSubscriptions`, `getSubscription`, `createSubscription`, `deleteSubscription`
+- **Provider State**: `getProviderState`, `upsertProviderState`
+
+> ⚠️ **Important Note**: 
+> The existing Express routes continue to use JSON filesystem persistence for now. Route migration will happen progressively in subsequent phases. This abstraction layer simply prepares the underlying D1 interface for that future migration.
