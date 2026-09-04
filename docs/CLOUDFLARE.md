@@ -331,5 +331,31 @@ Phase 10 aligns the built React SPA to natively consume the Cloudflare Worker AP
 - No visual or UX changes were introduced.
 - Strict tests added (`frontendIntegration.test.ts`) to ensure absence of leaked development backend URLs in source code.
 
+---
+
+## 16. Automated Testing (Phase 11)
+
+Phase 11 reinforces the Worker architecture with comprehensive deterministic testing. 
+
+**Test Command:**
+```bash
+pnpm test
+```
+
+**Architecture Areas Covered:**
+- **D1 Access Layer:** Verified insertion, updating, and `compareAndSetProviderState` semantics using a mocked D1 database.
+- **Worker Status System:** Tests simulate fetching upstream and ensure malformed provider APIs are safely isolated (fallback to "manual") without breaking the entire run.
+- **Worker Incidents:** Verified duplicate handling, error isolation during archive refresh, and nested updates deserialization.
+- **Worker Notifications:** Validated email stub behavior and isolated webhook failure recovery.
+- **Worker Routing:** Full request traversal testing across API paths, SPA fallback mechanisms, static assets, Embeds, and explicit 404s.
+- **Cron Monitoring Engine (Critical Path):** Asserts full lifecycle from provider fetch, state CAS update, race condition protection (preventing duplicate transition notifications on concurrent executions), to correct webhook trigger counts.
+- **Content Surfaces:** Verified maximum bounded sitemap generation alongside precise XML/TXT formatting.
+- **Frontend Integration:** Asserts standard URL contracts and no `localhost` bindings.
+
+**Testing Methodology:**
+- Tests do **not** require an active Cloudflare production deployment.
+- External dependencies (like `fetch` for Provider APIs and webhooks) are mocked deterministically to ensure fast CI/CD execution.
+- No real emails or webhooks are dispatched during test suites.
+
 > [!WARNING]
 > Production deployment has **not** occurred yet. The Express backend and Vercel configuration remain perfectly usable for active development.

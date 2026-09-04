@@ -145,5 +145,42 @@ describe("D1 Database Access Layer", () => {
       expect(stmt.bind).toHaveBeenCalledWith("p1", "operational", "OK");
       expect(stmt.run).toHaveBeenCalled();
     });
+
+    it("should compareAndSetProviderState successfully", async () => {
+      const stmt = createMockStmt();
+      // Emulate success by returning changes: 1
+      stmt.run.mockResolvedValue({ success: true, meta: { changes: 1, duration: 1 } });
+      mockDb.prepare.mockReturnValue(stmt);
+
+      const success = await dbLayer.compareAndSetProviderState(
+        { providerId: "p1", status: "degraded", message: "Bad" },
+        "operational"
+      );
+
+      expect(success).toBe(true);
+      expect(stmt.bind).toHaveBeenCalledWith("degraded", "Bad", "p1", "operational");
+    });
+
+    it("should compareAndSetProviderState return false on CAS failure", async () => {
+      const stmt = createMockStmt();
+      // Emulate failure by returning changes: 0
+      stmt.run.mockResolvedValue({ success: true, meta: { changes: 0, duration: 1 } });
+      mockDb.prepare.mockReturnValue(stmt);
+
+      const success = await dbLayer.compareAndSetProviderState(
+        { providerId: "p1", status: "degraded", message: "Bad" },
+        "operational"
+      );
+
+      expect(success).toBe(false);
+    });
+
+    it("should return null for not-found provider state", async () => {
+      const stmt = createMockStmt([]);
+      mockDb.prepare.mockReturnValue(stmt);
+
+      const state = await dbLayer.getProviderState("missing");
+      expect(state).toBeNull();
+    });
   });
 });

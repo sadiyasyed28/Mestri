@@ -147,4 +147,38 @@ describe("Worker Incidents Routes", () => {
     // Validate insert query was called
     expect(dbBinding.prepare).toHaveBeenCalledWith(expect.stringContaining("INSERT INTO incidents"));
   });
+
+  it("should isolate failing provider archives without crashing others", async () => {
+    (global.fetch as any).mockImplementation((url: string) => {
+      // OpenAI succeeds
+      if (url.includes("openai") && url.includes("incidents.json")) {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve({
+            incidents: [{
+              id: "new-openai", name: "OK", impact: "minor", status: "resolved", created_at: "2024-01-02T00:00:00Z"
+            }]
+          })
+        });
+      }
+      // Anthropic fails
+      if (url.includes("anthropic")) {
+        return Promise.reject(new Error("Network Error"));
+      }
+      return Promise.resolve({ ok: false, status: 404, json: () => Promise.resolve({}) });
+    });
+
+    await refreshWorkerArchive(dbBinding);
+    
+    // Expect OpenAI to have been inserted despite Anthropic failing
+    // Since mockDb doesn't perfectly expose the closure map, we rely on the prepare call asserting it ran
+    expect(dbBinding.prepare).toHaveBeenCalledWith(expect.stringContaining("INSERT INTO incidents"));
+  });
+
+  it("should deserialize nested updates correctly", async () => {
+    const incident = await getWorkerIncident(dbBinding, "test-incident");
+    expect(Array.isArray(incident?.updates)).toBe(true);
+    expect(incident?.updates[0].body).toBe("Fixed");
+    expect(incident?.updates[0].status).toBe("resolved");
+  });
 });

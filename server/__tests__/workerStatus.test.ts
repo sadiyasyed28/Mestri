@@ -131,8 +131,53 @@ describe("Worker Status Route", () => {
     expect(openai.message).toBe("Upstream feed unreachable.");
     
     // Google is manual-only, should also be manual
+    // Google is manual-only, should also be manual
     const google = statuses["google"];
     expect(google).toBeDefined();
     expect(google.status).toBe("manual");
+  });
+
+  it("should isolate failing providers without stopping successful ones", async () => {
+    (global.fetch as any).mockImplementation((url: string) => {
+      // openai succeeds
+      if (url.includes("openai")) {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve({
+            page: { updated_at: "2024-01-01T00:00:00Z" },
+            status: { indicator: "none", description: "OK" }
+          })
+        });
+      }
+      // anthropic fails
+      if (url.includes("anthropic")) {
+        return Promise.reject(new Error("Network Error"));
+      }
+      return Promise.resolve({ ok: false, status: 500, json: () => Promise.resolve({}) });
+    });
+
+    const statuses = await getWorkerStatus(dbBinding);
+
+    expect(statuses["openai"].status).toBe("operational");
+    expect(statuses["anthropic"].status).toBe("manual");
+  });
+
+  it("should handle malformed provider response safely", async () => {
+    (global.fetch as any).mockImplementation((url: string) => {
+      if (url.includes("openai")) {
+        // Missing "status" object
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve({ page: {} })
+        });
+      }
+      return Promise.reject(new Error("Unexpected url"));
+    });
+
+    const statuses = await getWorkerStatus(dbBinding);
+    
+    // Fallbacks to manual on malformed JSON
+    expect(statuses["openai"].status).toBe("manual");
+    expect(statuses["openai"].message).toBe("Upstream feed unreachable.");
   });
 });

@@ -135,6 +135,32 @@ describe("Worker Cron Monitoring Engine", () => {
     }));
   });
 
+  it("should handle reverse transition and notify exactly once", async () => {
+    // Start as degraded
+    (dbBinding as any).__setState("openai", "degraded");
+    
+    (fetcher.fetchProviderSnapshotRemote as any).mockImplementation((provider: any) => {
+      if (provider.id === "openai") {
+        return Promise.resolve({
+          status: "operational",
+          message: "All good",
+          timestamp: "2024-01-01T01:00:00Z",
+          history: []
+        });
+      }
+      return Promise.resolve({ status: "operational", message: "", timestamp: "2024-01-01T00:00:00Z", history: [] });
+    });
+
+    const result = await runMonitoringCycle(dbBinding);
+    expect(result.transitions).toBe(1);
+    expect(result.notificationsAttempted).toBe(1);
+    expect(notif.deliverWebhook).toHaveBeenCalledWith("https://example.com", expect.objectContaining({
+      providerId: "openai",
+      oldStatus: "degraded",
+      newStatus: "operational"
+    }));
+  });
+
   it("should prevent duplicate notifications if a concurrent execution updates state first", async () => {
     (dbBinding as any).__setState("openai", "operational");
     

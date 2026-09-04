@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { getWorkerSubscriptions, createWorkerSubscription, deleteWorkerSubscription, deliverWebhook } from "../workerNotifications";
+import { getWorkerSubscriptions, createWorkerSubscription, deleteWorkerSubscription, deliverWebhook, logEmailStub } from "../workerNotifications";
 import type { D1Database } from "@cloudflare/workers-types";
 
 global.fetch = vi.fn();
@@ -144,5 +144,15 @@ describe("Worker Notifications Routes", () => {
     (global.fetch as any).mockImplementation(() => Promise.reject(new Error("Network down")));
     const success = await deliverWebhook("https://example.com", { test: true });
     expect(success).toBe(false);
+  });
+
+  it("should execute email stub behavior without failing", () => {
+    const consoleSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
+    logEmailStub("test@example.com", { message: "hello" });
+    expect(consoleSpy).toHaveBeenCalledWith(
+      expect.stringContaining("email delivery to test@example.com is a no-op"),
+      { message: "hello" }
+    );
+    consoleSpy.mockRestore();
   });
 });

@@ -261,6 +261,9 @@ export function deriveSnapshot(
   summary: StatusPageSummary,
   incidents: StatusPageIncident[],
 ): FetchedSnapshot {
+  if (!summary || (!summary.status && !summary.components)) {
+    throw new Error("Malformed provider summary response");
+  }
   const currentStatus = summaryStatus(summary);
   const latestIncident = incidents[0];
   const latestUpdate = latestIncident?.incident_updates?.[0];

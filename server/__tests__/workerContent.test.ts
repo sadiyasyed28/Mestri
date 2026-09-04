@@ -118,6 +118,41 @@ describe("Worker Content Routes (Phase 8)", () => {
       expect(xml).toContain("<lastmod>2024-01-01T02:00:00.000Z</lastmod>");
       expect(xml).toContain("<loc>https://mestri.dev/i/inc2</loc>");
     });
+
+    it("should bound incident URLs to maximum limit", async () => {
+      // Temporarily mock db to return 6000 incidents
+      const largeIncidents = Array.from({ length: 6000 }, (_, i) => ({
+        id: `inc${i}`,
+        provider_id: "openai",
+        name: "Test",
+        impact: "minor",
+        status: "resolved",
+        created_at: "2024-01-01T02:00:00Z",
+        updated_at: "2024-01-01T02:00:00Z",
+        resolved_at: "2024-01-01T02:00:00Z",
+        updates: "[]"
+      }));
+      
+      const originalDbBinding = dbBinding;
+      dbBinding = {
+        prepare: vi.fn(() => ({
+          bind: vi.fn(() => ({
+            all: vi.fn(async () => ({ results: largeIncidents, success: true }))
+          })),
+          all: vi.fn(async () => ({ results: largeIncidents, success: true }))
+        }))
+      } as any;
+      mockEnv.DB = dbBinding;
+
+      const res = await handleSitemap(mockRequest, mockEnv);
+      const xml = await res.text();
+      
+      const locMatches = xml.match(/<loc>.*?\/i\/inc/g) || [];
+      expect(locMatches.length).toBe(5000); // Bounded to 5000
+      
+      dbBinding = originalDbBinding; // Restore
+      mockEnv.DB = dbBinding;
+    });
   });
 
   describe("handleRobots", () => {
