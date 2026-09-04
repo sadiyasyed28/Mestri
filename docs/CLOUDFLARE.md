@@ -214,3 +214,30 @@ With D1 active for incident persistence, the following operational metrics can n
 - Incident severity distribution (`SELECT impact, COUNT(*) FROM incidents GROUP BY impact`)
 - Currently active/unresolved incidents (`SELECT COUNT(*) FROM incidents WHERE resolved_at IS NULL`)
 - Incidents by provider (`SELECT provider_id, COUNT(*) FROM incidents GROUP BY provider_id`)
+
+---
+
+## 11. Notifications Migration (Phase 6)
+
+The Cloudflare Worker now handles notification subscription management via D1, ensuring persistent edge-available webhook and email routing endpoints.
+
+**Persistence Strategy:**
+- **`subscriptions` table**: Replaces `data/subscriptions.json` for the Worker runtime. Stores target URLs, channel type, and target provider scopes safely.
+- **Validation**: Strict validation rules ensure correct channel parsing and sanitize incoming targets (enforcing `https://` schemas and email patterns).
+
+**Worker Endpoints Implemented:**
+- `GET /api/notifications`: Retrieves active subscriptions.
+- `POST /api/notifications`: Validates and persists a new subscription.
+- `DELETE /api/notifications/:id`: Safely removes a subscription without failing if nonexistent.
+
+**Webhook Delivery Strategy (Preparation):**
+Minimal webhook fetch-delivery logic (`deliverWebhook`) was cleanly extracted for the Worker context. However, automated status transitions and scheduled execution belong exclusively to Phase 7. `provider_state` from Phase 4 is prepared to act as the exact transition-detection boundary against duplicate deliveries once Cron drops in. 
+
+**Express/Worker Boundary:**
+`data/subscriptions.json` remains strictly untouched. The Express application continues to manage its own notifications independently.
+
+**Derivable Real Metrics:**
+With D1 active for subscription persistence, the following operational metrics can now be accurately derived directly via SQL:
+- Total active subscriptions (`SELECT COUNT(*) FROM subscriptions`)
+- Subscriptions by channel (`SELECT channel, COUNT(*) FROM subscriptions GROUP BY channel`)
+- Subscriptions by provider (`SELECT provider_id, COUNT(*) FROM subscriptions GROUP BY provider_id`)
