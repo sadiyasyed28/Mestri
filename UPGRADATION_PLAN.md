@@ -17,6 +17,29 @@ Every item lists *what* to do, *why*, and *how*. Nothing here requires a backend
 
 ---
 
+## How to use this plan
+
+- **The phases are sequential, but the sub-tasks within a phase are not.** If you only have a weekend, do 0.1 + 0.3 + a README. If you have a month, do all of Phase 0 and Phase 1.
+- **Every task stands on its own.** Each one has a Why, a Deliverable list, and an Effort estimate, so you can pick a task from Phase 1 without having read Phase 0.
+- **The Effort numbers assume a solo developer with focused time.** A team will be faster; an unfamiliar codebase will be slower. Multiply by 1.5× if it's your first time touching a piece.
+
+## What this plan is **not**
+
+- A Gantt chart. There's no dependency graph; the phases are loose.
+- A contract. Skip what doesn't apply; reorder what you want; merge items if it makes sense.
+- An audit. For "is this code right?" see the conversation that produced this plan.
+
+## Risks & open questions
+
+- **CORS is the single biggest unknown.** If a major provider (OpenAI, Anthropic) closes CORS on their status endpoints, mestri's live feed for them degrades to "manual" forever — until Phase 1.5. Monitor this as a risk each time you add a provider.
+- **No retention loop.** v1 is a destination, not a habit. Phase 2 is the answer; until then, expect most visitors to come once and never return.
+- **Single-developer bus factor.** The whole product is in one head. The README (Phase 0.4) is the cheapest possible insurance.
+- **No competitive moat.** A motivated competitor can clone this in a weekend. The moat has to come from brand polish + eventually the historical archive (Phase 2.2).
+- **Unknown legal exposure on Phase 3.2** (synthetic checks). Do not even start that work without legal review.
+
+---
+
+
 ## Phase 0 — Make the thing that exists actually work (P0)
 
 The current build is one missing PNG away from looking broken in production. Fix that first.
@@ -55,6 +78,8 @@ The current build is one missing PNG away from looking broken in production. Fix
 2. **Verify each provider's CORS posture from a real browser console** and annotate:
    - For each provider in `PROVIDERS`, run `fetch(feedUrl, { method: "HEAD" })` in DevTools on a deployed preview.
    - Add a `// verified CORS-open YYYY-MM-DD` comment to each provider entry. Update `research-notes.md` with the result.
+   - **If CORS is closed:** that provider falls back to `"manual"` status *permanently* for client-side mode. Note it in `research-notes.md`. The real fix is Phase 1.5's server-side `/api/status` endpoint.
+   - **If the feed is rate-limited:** add a `// rate-limited at N req/min` note. The 7s timeout in `fetchProviderSnapshot` is your friend; do NOT add retries in the client.
 
 3. **Make `lastChecked` honest.** In `Home.tsx`:
    - Track `lastSuccessfulCheck` separately from `lastRefreshAttempt`.
@@ -67,7 +92,28 @@ The current build is one missing PNG away from looking broken in production. Fix
 
 ---
 
-### 0.3 Strip the template scaffolding
+### 0.3 Write a README
+
+**Why:** there is no README. `ideas.md`, `research-notes.md`, `todo.md`, `reference-notes.md` are all useful internal docs, but none of them tells a new contributor (or future-you in 3 months) how to run, build, or deploy the thing.
+
+**Deliverables:** create `README.md` with these sections:
+
+1. **What this is** — one paragraph from `ideas.md` Brand Essence.
+2. **Quickstart** — `pnpm install && pnpm dev` → http://localhost:3000.
+3. **Scripts** — table: `dev`, `build`, `start`, `preview`, `check`, `format`.
+4. **Project layout** — bullet list of `client/`, `server/`, `shared/`, `dist/`.
+5. **Providers** — current list (OpenAI, Anthropic, xAI, Google, Mistral) with feed URLs and the CORS verification dates from 0.2.
+6. **Adding a provider** — short recipe: add to `PROVIDERS` in `statusFeeds.ts`, verify CORS, ship.
+7. **Design system** — link to `ideas.md`, list the three fonts and where they're used.
+8. **Deploy** — any static host works for now (Vercel, Netlify, Cloudflare Pages). Document the asset caveat from 0.1 so the next deployer doesn't reintroduce the bug.
+9. **Contributing** — keep it short; one paragraph.
+
+**Effort:** ~30 minutes.
+**Why P0:** a project without a README is a project people don't share.
+
+---
+
+### 0.4 Strip the template scaffolding
 
 **Why:** this project was forked from a Manus-style starter. Most of that starter is dead weight that makes the codebase dishonest and the bundle bigger than it needs to be.
 
@@ -106,27 +152,16 @@ If `pnpm check` complains about `@/components/ui/*` that's still imported by `Ap
 
 ---
 
-### 0.4 Write a README
+### Definition of "Phase 0 done"
 
-**Why:** there is no README. `ideas.md`, `research-notes.md`, `todo.md`, `reference-notes.md` are all useful internal docs, but none of them tells a new contributor (or future-you in 3 months) how to run, build, or deploy the thing.
-
-**Deliverables:** create `README.md` with these sections:
-
-1. **What this is** — one paragraph from `ideas.md` Brand Essence.
-2. **Quickstart** — `pnpm install && pnpm dev` → http://localhost:3000.
-3. **Scripts** — table: `dev`, `build`, `start`, `preview`, `check`, `format`.
-4. **Project layout** — bullet list of `client/`, `server/`, `shared/`, `dist/`.
-5. **Providers** — current list (OpenAI, Anthropic, xAI, Google, Mistral) with feed URLs and the CORS verification dates from 0.2.
-6. **Adding a provider** — short recipe: add to `PROVIDERS` in `statusFeeds.ts`, verify CORS, ship.
-7. **Design system** — link to `ideas.md`, list the three fonts and where they're used.
-8. **Deploy** — any static host works for now (Vercel, Netlify, Cloudflare Pages). Document the asset caveat from 0.1 so the next deployer doesn't reintroduce the bug.
-9. **Contributing** — keep it short; one paragraph.
-
-**Effort:** ~30 minutes.
-**Why P0:** a project without a README is a project people don't share.
+- [ ] All three brand/background images (mestri-mark, paper-grid, signal-field) load with HTTP 200 on a fresh `pnpm preview` build.
+- [ ] Every provider's `feedUrl` either returns live data or is honestly labeled "Feed unavailable" — no silent failures.
+- [ ] `pnpm check`, `pnpm build`, and `pnpm preview` all pass with zero warnings about missing imports or dead deps.
+- [ ] `rg "Map|ManusDialog|getLoginUrl|usePersistFn" client/src shared` returns no matches.
+- [ ] `README.md` exists, is accurate, and links to `ideas.md` and the providers list.
+- [ ] You can describe mestri in two sentences to a stranger and they immediately get it.
 
 ---
-
 
 ## Phase 1 — v1 quality (P1)
 
@@ -136,12 +171,9 @@ Do these in the first two weeks after public launch. Each is independently shipp
 
 **Why:** `App.tsx` sets `defaultTheme="dark"` but the design system in `ideas.md` is light-first (paper-white editorial canvas, lime operational accent that "turns operational into a visible pulse without making the site feel like a neon dashboard"). The dark palette in `index.css` is more recent and looks considered, but the default is the wrong way around.
 
-**Options:**
+**Decision: ship light-first, keep dark as a toggle.** Match `ideas.md`. Set `defaultTheme="light"` in `App.tsx`. Add a small theme toggle in the header (the design system already accommodates it — `.theme-toggle-label`, `.theme-toggle` classes exist in CSS but no toggle is wired up). Ship light by default; users who want dark can opt in.
 
-- **Option A (recommended): ship light-first, keep dark.** Match `ideas.md`. Set `defaultTheme="light"` in `App.tsx`. Add a small theme toggle in the header (the design system already accommodates it — `.theme-toggle-label`, `.theme-toggle` classes exist in CSS but no toggle is wired up).
-- **Option B: ship dark-first, update `ideas.md`.** Valid if you personally prefer the dark look. Just commit to it.
-
-**Deliverable:** whichever option, plus an explicit `<html class="dark">` or no-class on first paint to avoid the FOUC. Currently the ThemeContext's `useEffect` adds the class *after* React mounts — there's a brief light flash on dark default.
+Plus an explicit fix for the FOUC: currently the ThemeContext's `useEffect` adds the class *after* React mounts — there's a brief light flash on dark default. Set the `<html>` class on first paint (either via a tiny inline script in `index.html` or by reading the saved theme synchronously in `ThemeProvider`).
 
 **Effort:** ~1 hour.
 
@@ -209,29 +241,57 @@ For each: research, add to `PROVIDERS`, verify CORS (Phase 0.2 process), ship.
 
 **Why:** right now mestri is a website. The cheapest possible way to make it a *platform* is to expose the same snapshots it already shows as a public JSON endpoint. Other tools (CLI dashboards, Slack bots, Raycast extensions) can then consume mestri as a source.
 
-**Option A (no backend):** generate a static JSON file at build time by running `statusFeeds.ts` once during `pnpm build` and writing `client/public/api/status.json`. Re-builds are how snapshots refresh — fine for v1, bad for live accuracy.
+**Decision: skip Option A entirely. Use Option B (tiny backend) from day one.** A static `api/status.json` looks tempting but it makes mestri lie every time a provider's status changes between deploys — exactly the opposite of what the product promises. Option A is here only so you remember the temptation exists; do not take it.
 
-**Option B (tiny backend, recommended):** add a single route to `server/index.ts`:
+**File layout to add (concrete diff):**
+- `server/routes/status.ts` — exports a default Express `Router` mounted at `/api/status`. `server/index.ts` imports it and calls `app.use("/api", statusRouter)`.
+- `shared/statusFeeds.ts` — moved from `client/src/lib/statusFeeds.ts`. It has no client-only dependencies (no `window`, no `localStorage`, no `document`), so both `client/` and `server/` can import it via the existing `@shared` alias with no new bundler config.
+- `client/src/lib/statusFeeds.ts` — re-exports from `@shared/statusFeeds` so existing imports in `Home.tsx` keep working unchanged.
+
+Sketch:
 ```ts
-app.get("/api/status", async (_req, res) => {
-  const snapshots = await fetchAllSnapshots(); // lifted from statusFeeds.ts
+// server/routes/status.ts
+import { Router } from "express";
+import { fetchAllSnapshots } from "@shared/statusFeeds";
+
+export const statusRouter = Router();
+statusRouter.get("/status", async (_req, res) => {
+  const snapshots = await fetchAllSnapshots();
   res.set("Cache-Control", "public, max-age=60");
   res.json(snapshots);
 });
 ```
-Lift `fetchProviderSnapshot` and the `PROVIDERS` list into `shared/` so both client and server can import them.
+```ts
+// server/index.ts (add this line)
+import { statusRouter } from "./routes/status";
+// ...
+app.use("/api", statusRouter);
+```
 
-**Deliverables (Option B):**
-1. Move `statusFeeds.ts` core into `shared/statusFeeds.ts`.
-2. Add `server/routes/status.ts` with the `/api/status` route.
-3. Cache snapshots in-memory for 60 seconds.
-4. Document the endpoint in README.
-5. Optional but very cheap: add a `Cache-Control` + `ETag` to avoid re-fetching from status providers on every request.
+The `server/` directory is already in the esbuild bundle path via the existing `build` script — no config change needed.
+
+**Deliverables:**
+1. Move `statusFeeds.ts` core into `shared/statusFeeds.ts`. Re-export from the old path so `Home.tsx` doesn't change.
+2. Add `server/routes/status.ts` and mount it in `server/index.ts`.
+3. Cache snapshots in-memory for 60 seconds to avoid hammering provider feeds.
+4. Document the endpoint in README under a "Public API" section.
+5. Verify with `curl -s http://localhost:3000/api/status | jq '.openai.status'` — expect one of `operational`, `degraded`, `outage`, `manual`.
 
 **Effort:** ~3 hours.
 
 ---
 
+
+### Definition of "Phase 1 done"
+
+- [ ] Light mode is the default and dark mode is reachable via a visible toggle.
+- [ ] No FOUC on first paint for either theme.
+- [ ] All three `todo.md` items are checked off, with a desktop+mobile screenshot pair saved as a checkpoint.
+- [ ] `pnpm test` passes; `statusFeeds.ts` has unit tests for the four pure functions.
+- [ ] At least one new provider has been added (or you've explicitly decided to stop at five).
+- [ ] `curl http://localhost:3000/api/status` returns valid JSON with a `Cache-Control: public, max-age=60` header.
+
+---
 
 ## Phase 2 — v1.1, the product that has a reason to be revisited (P2)
 
@@ -291,6 +351,16 @@ These are the moves that turn mestri from a "nice status page" into something wi
 ---
 
 
+### Definition of "Phase 2 done"
+
+- [ ] `/api/feeds/all.xml` validates as a feed in an RSS reader.
+- [ ] At least 30 days of incident history is queryable in the SQLite store.
+- [ ] `/i/:incidentId` renders correctly for every known incident and is submitted to the sitemap.
+- [ ] A real subscriber (you, or a friend) has received at least one end-to-end email notification OR has a working webhook that fires on a status transition.
+- [ ] `/changelog` is reachable and renders from `CHANGELOG.md`.
+
+---
+
 ## Phase 3 — Strategic moat (P3)
 
 Only do these if mestri is becoming a real thing and not a side project.
@@ -327,6 +397,17 @@ Tiny `iframe`-friendly embed: `<iframe src="/embed/openai" width="240" height="8
 
 **Effort:** ~2 days.
 
+**Effort:** ~2 days.
+
+---
+
+### Definition of "Phase 3 done"
+
+- [ ] `/api/status` is served from a server-side worker, not a browser fetch — and the worker survives a single-provider outage (graceful degradation per provider, not whole-feed failure).
+- [ ] If 3.2 was attempted: legal review is on file, every probed provider is listed in `research-notes.md` with an explicit "consented to probing" note, and the UI clearly labels this signal as unofficial.
+- [ ] `/embed/:providerId` renders correctly when included as an `<iframe>` on a third-party page (test against a real external HTML file).
+- [ ] The whole stack survives a 24-hour soak test with no memory leaks or runaway provider fetches.
+
 ---
 
 ## Things I am explicitly **not** recommending
@@ -354,3 +435,87 @@ A solo developer working on mestri in spare time:
 | 11+ | Decide: is mestri a hobby, a portfolio piece, or a product? If product → Phase 3. If not → stop at 2.4 and keep it tidy. |
 
 The biggest unlock is Phase 2.2. Everything before it is "make the thing work." Everything after it is "make the thing matter."
+
+---
+
+## When to stop
+
+Honest stopping points, in priority order. The earlier you stop, the less of the plan you've shipped — but every point on this list is a complete, defensible v1.
+
+1. **After Phase 0** — you have a clean, working, deployable product with no dead code. Ship it.
+2. **After Phase 1.3** — you have tests around the data layer. Ship it if you don't care about more providers or the JSON endpoint.
+3. **After Phase 1.5** — you have a public API. From here, growth is the limiting factor, not code.
+4. **After Phase 2.2** — you have an SEO-compounding historical archive. From here, the product compounds on its own; you mostly maintain.
+5. **After Phase 2.3** — you have a retention loop. From here, you're running a product, not a project.
+
+Phase 3 is only worth doing if you crossed 2.3 and decided mestri is a real product.
+
+---
+
+## Verification commands
+
+A grab-bag of one-liners for sanity-checking that each phase actually delivered. Run them after the corresponding phase and before you declare it done.
+
+**Phase 0.1 — assets resolve locally:**
+```
+pnpm build && pnpm preview &
+curl -sI http://localhost:3000/mestri-mark.png  | head -1   # expect: HTTP/1.1 200 OK
+curl -sI http://localhost:3000/paper-grid.png   | head -1
+curl -sI http://localhost:3000/signal-field.png | head -1
+```
+
+**Phase 0.2 — CORS is open for a feed:**
+```
+curl -sI https://status.openai.com/api/v2/summary.json | findstr -i access-control
+# expect: Access-Control-Allow-Origin: *
+```
+
+**Phase 0.3 — dead code is gone:**
+```
+# PowerShell equivalent of `rg "Map|ManusDialog|getLoginUrl|usePersistFn" client/src shared`
+Select-String -Path .\client\src\*.*, .\shared\*.* -Pattern 'Map|ManusDialog|getLoginUrl|usePersistFn'
+# expect: no matches
+```
+
+**Phase 0.4 — README is current:**
+```
+Test-Path README.md   # expect: True
+Get-Content README.md | Select-String -Pattern 'Quickstart|Providers|Design system'
+# expect: all three patterns match
+```
+
+**Phase 1.3 — tests pass:**
+```
+pnpm test
+# expect: 0 failures
+```
+
+**Phase 1.5 — JSON endpoint works:**
+```
+curl -s http://localhost:3000/api/status | ConvertFrom-Json | Select-Object -ExpandProperty openai
+# expect: a status property with one of: operational, degraded, outage, manual
+curl -sI http://localhost:3000/api/status | Select-String -Pattern 'Cache-Control'
+# expect: Cache-Control: public, max-age=60
+```
+
+**Phase 2.2 — incident page renders:**
+```
+curl -s -o $null -w "%{http_code}" http://localhost:3000/i/<some-known-incident-id>
+# expect: 200
+```
+
+---
+
+## Summary of changes vs. the original draft
+
+If you're reading this for the first time, ignore this section. If you're reviewing an older draft, here's what changed:
+
+- Added "How to use this plan" + "What this plan is **not**" + "Risks & open questions" right after the Reading guide.
+- Reordered Phase 0: README (now 0.3) moved before "strip scaffolding" (now 0.4).
+- Added a CORS contingency block to Phase 0.2.
+- Tightened Phase 1.1 from "two options" to a single decision: ship light, toggle dark.
+- Made Phase 1.5 concrete: exact file paths, code sketch, no Option A.
+- Added "Definition of <Phase> done" checklists at the end of each phase.
+- Added the "When to stop" decision rules at the bottom.
+- Added the "Verification commands" appendix.
+

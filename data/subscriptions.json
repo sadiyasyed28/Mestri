@@ -1,0 +1,9 @@
+[
+  {
+    "id": "1788530592260-c2j7sy",
+    "providerId": "openai",
+    "channel": "webhook",
+    "target": "https://example.com/hook",
+    "createdAt": "2026-09-04T14:03:12.260Z"
+  }
+]

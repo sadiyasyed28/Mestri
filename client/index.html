@@ -1,16 +1,29 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
 
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>mestri — AI service availability</title>
     <link rel="icon" type="image/svg+xml" href="/mestri-mark.svg" />
     <link rel="alternate icon" href="/favicon.svg" />
     <meta name="description" content="A quiet, no-signup status tracker for the AI services you rely on." />
-
+    <meta property="og:title" content="mestri — AI service availability" />
+    <meta property="og:description" content="The signal, not the speculation. A quiet status tracker for the AI tools you rely on." />
+    <meta property="og:type" content="website" />
+    <script>
+      // Synchronous theme bootstrap — eliminates FOUC by setting <html> class
+      // *before* React mounts, based on localStorage or the default "light".
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var theme = stored === "dark" ? "dark" : "light";
+          if (theme === "dark") document.documentElement.classList.add("dark");
+        } catch (_) {
+          /* localStorage unavailable; fall through to default */
+        }
+      })();
+    </script>
   </head>
 
   <body>

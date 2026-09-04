@@ -1,0 +1,3572 @@
+[
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01M1NKFZH5EEYEREC54HNAHY35",
+    "name": "Users in APAC region may face increased error in ChatGPT, Work, image generation, file upload, Voice, and Codex Cloud",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-09-04T07:00:26Z",
+    "updatedAt": "2026-09-04T10:46:54Z",
+    "resolvedAt": "2026-09-04T10:46:54Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-09-04T10:46:54Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-09-04T09:47:58Z"
+      },
+      {
+        "body": "We are investigating the issue for the listed services.",
+        "status": "investigating",
+        "updatedAt": "2026-09-04T07:00:26Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01M1KWEDH417T2CF44YYHZDFCR",
+    "name": "Elevated errors across ChatGPT and Codex",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-09-03T14:58:23Z",
+    "updatedAt": "2026-09-03T16:55:49Z",
+    "resolvedAt": "2026-09-03T16:55:49Z",
+    "updates": [
+      {
+        "body": "The issue causing elevated errors across ChatGPT and Codex has been resolved.\n\nSome Codex remote control users may need to pair their mobile device again following this incident.",
+        "status": "resolved",
+        "updatedAt": "2026-09-03T16:55:49Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-09-03T16:44:18Z"
+      },
+      {
+        "body": "We are investigating the issue for the listed services.",
+        "status": "investigating",
+        "updatedAt": "2026-09-03T16:22:41Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "461yvfrzpwtt",
+    "name": "Elevated errors for multiple models",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-09-03T13:26:04.201Z",
+    "updatedAt": "2026-09-03T16:23:12.071Z",
+    "resolvedAt": "2026-09-03T16:23:12.052Z",
+    "updates": [
+      {
+        "body": "The issue affecting Claude Mythos 5.1, Claude Fable 5.1, and Claude Opus 5 has been resolved. Impact has ended as of 9:16 PT / 16:16 UTC.",
+        "status": "resolved",
+        "updatedAt": "2026-09-03T16:23:12.052Z"
+      },
+      {
+        "body": "A fix has been deployed for Claude Mythos 5.1, Claude Fable 5.1, and Claude Opus 5 and we are monitoring for recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-09-03T16:06:42.637Z"
+      },
+      {
+        "body": "The only affected models right now are Opus 4.8 and Opus 5. The rest of the models have recovered to baseline error rate.",
+        "status": "identified",
+        "updatedAt": "2026-09-03T15:25:20.192Z"
+      },
+      {
+        "body": "We are continuing to work on a fix for this issue.",
+        "status": "identified",
+        "updatedAt": "2026-09-03T14:49:48.605Z"
+      },
+      {
+        "body": "An exhaustive list of affected models: Mythos/Fable 5.1, Mythos/Fable 5, Opus 5, Opus 4.8, Opus 4.6.",
+        "status": "identified",
+        "updatedAt": "2026-09-03T13:50:26.915Z"
+      },
+      {
+        "body": "We have identified the cause of elevated errors on requests to Claude Mythos 5.1, Claude Fable 5.1, and Claude Opus 5 and are working on a fix. We will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-09-03T13:41:19.219Z"
+      },
+      {
+        "body": "We are investigating elevated errors on requests to Claude Mythos 5.1, Claude Fable 5.1, and Claude Opus 5. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-09-03T13:26:04.371Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "288w7p4hk1l1",
+    "name": "Elevated errors for Claude Sonnet 5",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-09-03T12:37:31.766Z",
+    "updatedAt": "2026-09-03T12:56:26.648Z",
+    "resolvedAt": "2026-09-03T12:56:26.632Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-09-03T12:56:26.632Z"
+      },
+      {
+        "body": "A fix has been implemented and we are monitoring the results.",
+        "status": "monitoring",
+        "updatedAt": "2026-09-03T12:47:15.690Z"
+      },
+      {
+        "body": "We are investigating elevated errors on requests to Claude Sonnet 5. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-09-03T12:37:31.934Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01M1J99EDCYED5GP2W8GZ3N2NA",
+    "name": "ChatGPT Work Mode High Error Rates",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-09-03T00:04:23Z",
+    "updatedAt": "2026-09-03T00:10:45Z",
+    "resolvedAt": "2026-09-03T00:10:45Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-09-03T00:10:45Z"
+      },
+      {
+        "body": "ChatGPT Work Mode is experiencing high error rates. We are investigating the issue.",
+        "status": "investigating",
+        "updatedAt": "2026-09-03T00:04:23Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "ls6bn1x81m0w",
+    "name": "Elevated errors for Claude Sonnet 5",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-09-02T21:17:58.704Z",
+    "updatedAt": "2026-09-02T21:44:28.108Z",
+    "resolvedAt": "2026-09-02T21:44:28.095Z",
+    "updates": [
+      {
+        "body": "The issue affecting Claude Sonnet 5 has been resolved. Impact occurred from 2:05pm PT / 21:05 UTC to 2:19pm PT / 21:19 UTC.",
+        "status": "resolved",
+        "updatedAt": "2026-09-02T21:44:28.095Z"
+      },
+      {
+        "body": "We are investigating elevated errors on requests to Claude Sonnet 5. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-09-02T21:17:58.807Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01M1HN7GRR6FJNWFVX2F8QMA3R",
+    "name": "Elevated errors creating new accounts",
+    "impact": "none",
+    "status": "resolved",
+    "createdAt": "2026-09-02T18:13:48Z",
+    "updatedAt": "2026-09-02T18:45:12Z",
+    "resolvedAt": "2026-09-02T18:45:12Z",
+    "updates": [
+      {
+        "body": "The issue affecting new account creation has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-09-02T18:45:12Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-09-02T18:39:29Z"
+      },
+      {
+        "body": "We are investigating an issue preventing some users from creating new accounts. We will share updates as we learn more.",
+        "status": "investigating",
+        "updatedAt": "2026-09-02T18:13:49Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "620swtqyn24k",
+    "name": "Delays in credit purchases",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-09-01T23:26:48.992Z",
+    "updatedAt": "2026-09-02T01:24:22.264Z",
+    "resolvedAt": "2026-09-02T01:24:22.251Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-09-02T01:24:22.251Z"
+      },
+      {
+        "body": "We have identified and resolved an issue where users who reached a balance of zero usage credits saw delays in the availability of newly purchased credits, resulting in some requests to the Claude API receiving 'credit balance is too low' errors erroneously. This affected credits purchased from 05:10am PT / 12:10 UTC to 2:35pm PT / 21:35 UTC. At this time, newly purchased credits should be available as expected and we are working to resolve any remaining impact.",
+        "status": "monitoring",
+        "updatedAt": "2026-09-01T23:26:49.062Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "3g3d55q6vk3h",
+    "name": "Degraded performance on platform.claude.com and Claude for Microsoft Office 365",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-09-01T17:05:11.462Z",
+    "updatedAt": "2026-09-01T18:07:03.389Z",
+    "resolvedAt": "2026-09-01T18:07:03.372Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-09-01T18:07:03.372Z"
+      },
+      {
+        "body": "We are seeing success rates recover across affected services. Core inference and the API are not impacted.",
+        "status": "monitoring",
+        "updatedAt": "2026-09-01T17:52:17.594Z"
+      },
+      {
+        "body": "We are investigating reports of degraded performance affecting some Claude services, including docs.claude.com. We are working to resolve these issues and will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-09-01T17:05:11.575Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "nr3h7bw8b3k3",
+    "name": "Degraded performance on Claude for Microsoft Office 365",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-09-01T16:02:48.681Z",
+    "updatedAt": "2026-09-01T16:22:19.494Z",
+    "resolvedAt": "2026-09-01T16:22:19.479Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-09-01T16:22:19.479Z"
+      },
+      {
+        "body": "We are investigating elevated errors affecting Claude for Microsoft Office 365. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-09-01T16:02:48.761Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01M1ET335FBT8KKCYN3NAEVR04",
+    "name": "Multiple Endpoint Disruptions",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-09-01T15:41:03Z",
+    "updatedAt": "2026-09-01T20:03:17Z",
+    "resolvedAt": "2026-09-01T20:03:17Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2026-09-01T20:03:17Z"
+      },
+      {
+        "body": "👀 We are monitoring to make sure the incident has been fully resolved.",
+        "status": "monitoring",
+        "updatedAt": "2026-09-01T19:47:31Z"
+      },
+      {
+        "body": "🛠️ We have identified the root cause as an ongoing Google Cloud Platform (GCP) outage. Our team is actively monitoring the situation while we wait for GCP to resolve the underlying issue. ([reference](https://status.cloud.google.com/incidents/J5ia5t9p3g9Q5Wi7r8Ev \"reference\"))",
+        "status": "identified",
+        "updatedAt": "2026-09-01T16:21:28Z"
+      },
+      {
+        "body": "🔎 We are currently investigating this live incident.",
+        "status": "investigating",
+        "updatedAt": "2026-09-01T15:41:03Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01M1D6E14BQSYQA3R5CNQBB7EB",
+    "name": "Elevated errors in ChatGPT conversations for Free and Go plans",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-09-01T00:38:15Z",
+    "updatedAt": "2026-09-01T01:00:01Z",
+    "resolvedAt": "2026-09-01T01:00:01Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-09-01T01:00:01Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-09-01T00:52:12Z"
+      },
+      {
+        "body": "We are investigating the issue for the listed services.",
+        "status": "investigating",
+        "updatedAt": "2026-09-01T00:38:15Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01M1CYZDD84XD0H56XNEV2PT98",
+    "name": "Elevated latency in the Responses API",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-31T22:27:56Z",
+    "updatedAt": "2026-09-01T19:05:46Z",
+    "resolvedAt": "2026-09-01T19:05:46Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-09-01T19:05:46Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-09-01T18:09:31Z"
+      },
+      {
+        "body": "We are implementing the mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-09-01T17:36:17Z"
+      },
+      {
+        "body": "We have identified elevated latencies impacting Responses API on the US endpoint.",
+        "status": "identified",
+        "updatedAt": "2026-09-01T15:15:09Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-09-01T01:46:22Z"
+      },
+      {
+        "body": "We have applied a mitigation and are monitoring recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-31T23:13:46Z"
+      },
+      {
+        "body": "We have identified an issue causing elevated latency for some Responses API requests. We are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-31T22:27:57Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "r82kdk0m7vqh",
+    "name": "Degraded performance on claude.ai and Claude Code",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-31T19:21:32.139Z",
+    "updatedAt": "2026-08-31T20:36:00.316Z",
+    "resolvedAt": "2026-08-31T20:36:00.297Z",
+    "updates": [
+      {
+        "body": "The issue affecting Claude Code has been resolved. Impact occurred from 16∶55 to 19∶16 UTC.",
+        "status": "resolved",
+        "updatedAt": "2026-08-31T20:36:00.297Z"
+      },
+      {
+        "body": "We are investigating reports of degraded performance affecting Claude in Slack, Claude Code on the web, and Code Review. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-31T19:21:32.227Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "9jrp5rtyzrf6",
+    "name": "Degraded performance on claude.ai",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-31T17:23:06.241Z",
+    "updatedAt": "2026-08-31T17:52:26.042Z",
+    "resolvedAt": "2026-08-31T17:52:26.026Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-31T17:52:26.026Z"
+      },
+      {
+        "body": "We have seen success rates return to normal for requests on Claude.ai and are monitoring closely.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-31T17:32:58.901Z"
+      },
+      {
+        "body": "We are investigating reports of elevated errors affecting chats on claude.ai. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-31T17:23:06.341Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01M1C5M4K0WC8PPT0Z175RJA1E",
+    "name": "ChatGPT Work seeing elevated errors and latency",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-08-31T15:04:53Z",
+    "updatedAt": "2026-08-31T20:28:40Z",
+    "resolvedAt": "2026-08-31T20:28:40Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-31T20:28:40Z"
+      },
+      {
+        "body": "We have applied a mitigation and are monitoring recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-31T20:01:16Z"
+      },
+      {
+        "body": "User across multiple subscription plans may be unable to start or continue tasks in ChatGPT Work.\n\nWe are continuing work on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-31T19:29:27Z"
+      },
+      {
+        "body": "User across multiple subscription plans may be unable to start or continue tasks in ChatGPT Work.\n\nWe are continuing work on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-31T17:52:14Z"
+      },
+      {
+        "body": "User across multiple subscription plans may be unable to start or continue tasks in ChatGPT Work. We\n\nWe are continuing work on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-31T17:01:18Z"
+      },
+      {
+        "body": "User across multiple subscription plans may be unable to start or continue tasks in ChatGPT Work. We are continuing to work on a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-31T16:02:11Z"
+      },
+      {
+        "body": "We have identified that users are experiencing elevated errors for the impacted services. Plus users are particularly impacted, where Work mode is currently unavailable.\n\nWe are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-31T15:21:30Z"
+      },
+      {
+        "body": "We have identified that users are experiencing elevated latency for the impacted services.\n\nWe are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-31T15:04:53Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "vr9tpk8w7zr8",
+    "name": "Elevated errors on Claude Code and Claude Cowork",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-08-28T17:22:02.377Z",
+    "updatedAt": "2026-08-28T20:21:18.464Z",
+    "resolvedAt": "2026-08-28T20:21:18.448Z",
+    "updates": [
+      {
+        "body": "The issue affecting Claude Cowork and Claude Code on the web has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-28T20:21:18.448Z"
+      },
+      {
+        "body": "A mitigation has been applied for the issue affecting Claude Cowork and Claude Code on the web, and we are monitoring for recovery. Sessions that disconnected earlier can be retried",
+        "status": "monitoring",
+        "updatedAt": "2026-08-28T18:21:02.271Z"
+      },
+      {
+        "body": "We have identified an issue with an upstream cloud provider affecting Claude Cowork and Claude Code on the web. Some sessions may fail to start or disconnect mid-task; affected sessions can be retried. We are in contact with the provider and will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-08-28T17:22:02.478Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01M1263309PD7VYV8EF95W2M2P",
+    "name": "Users may experience an increase in error rates in Workspace Agents and ChatGPT Work on Web and Mobile",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-27T18:00:38Z",
+    "updatedAt": "2026-08-27T22:14:44Z",
+    "resolvedAt": "2026-08-27T22:14:44Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-27T22:14:44Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-27T19:07:24Z"
+      },
+      {
+        "body": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-27T18:16:54Z"
+      },
+      {
+        "body": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-27T18:00:38Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01M0ZYYZ8YSAEJE9YENDA8MM86",
+    "name": "A100 hardware partial outage",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-08-26T21:17:34Z",
+    "updatedAt": "2026-08-27T00:25:21Z",
+    "resolvedAt": "2026-08-27T00:25:21Z",
+    "updates": [
+      {
+        "body": "We've been below capacity for A100 hardware for the past 30 minutes and all queues have been drained. Thanks for your patience 💖 ",
+        "status": "resolved",
+        "updatedAt": "2026-08-27T00:25:21Z"
+      },
+      {
+        "body": "We are seeing pods start up again now and they are working through the backlog.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-26T23:07:40Z"
+      },
+      {
+        "body": "We're seeing most A100 hardware automatically cordoned due to possible hardware failure.",
+        "status": "investigating",
+        "updatedAt": "2026-08-26T21:17:34Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "n0rlp126qf8g",
+    "name": "Issues logging into Claude.ai",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-24T20:11:23.934Z",
+    "updatedAt": "2026-08-24T20:26:21.592Z",
+    "resolvedAt": "2026-08-24T20:26:21.577Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-24T20:26:21.577Z"
+      },
+      {
+        "body": "We have identified and resolved an issue which resulted in errors when attempting to access Claude.ai, including logging in via subscriptions for Claude Code. Errors occurred between 1:00pm (20:00 UTC) through 1:08pm PT (20:08 UTC). We are monitoring closely to ensure no further issues.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-24T20:11:24.058Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "w43j3xmngxgj",
+    "name": "Errors logging into Claude.ai",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-24T17:12:42.200Z",
+    "updatedAt": "2026-08-24T17:16:02.924Z",
+    "resolvedAt": "2026-08-24T17:16:02.904Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-24T17:16:02.904Z"
+      },
+      {
+        "body": "From 9:02–9:08am PT / 16:02–16:08 UTC) users experienced issues when logging into Claude.ai, including for connecting Claude Code with subscription. At this time, this issue has been resolved, but we are continuing to investigate a potential issue impacting users of the Claude.ai desktop application.",
+        "status": "investigating",
+        "updatedAt": "2026-08-24T17:12:42.287Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "vgz5psbjmt1h",
+    "name": "Elevated errors for multiple models",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-08-24T05:06:39.493Z",
+    "updatedAt": "2026-08-24T08:30:47.634Z",
+    "resolvedAt": "2026-08-24T08:30:47.615Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved. From 9:50pm PT / 04:50 UTC through 00:36am PT / 07:36 UTC, users saw elevated errors on requests to Claude models, including Claude Opus 5 and Fable 5.",
+        "status": "resolved",
+        "updatedAt": "2026-08-24T08:30:47.615Z"
+      },
+      {
+        "body": "At this time, we have seen errors stabilize on Opus 5 and Fable 5, and are working to fully resolve success rates on all affected models. We will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-08-24T07:47:26.957Z"
+      },
+      {
+        "body": "We are continuing to work to resolve issues causing elevated requests on multiple models. We will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-08-24T06:42:37.573Z"
+      },
+      {
+        "body": "We have identified the cause of elevated errors on requests to Claude Mythos 5, Claude Fable 5, Claude Opus 5, and other Claude models and are working on a fix. We will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-08-24T05:27:45.213Z"
+      },
+      {
+        "body": "We are investigating elevated errors on requests to Claude Mythos 5, Claude Fable 5, Claude Opus 5, and Claude Opus 4.8. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-24T05:06:39.640Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01M0JXWD740S0Y50DWJZS7SH75",
+    "name": "Unexpected logouts for some ChatGPT web users",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-21T19:48:34Z",
+    "updatedAt": "2026-08-21T23:15:09Z",
+    "resolvedAt": "2026-08-21T23:15:09Z",
+    "updates": [
+      {
+        "body": "The issue causing some ChatGPT web users to be unexpectedly logged out when refreshing the page has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-21T23:15:09Z"
+      },
+      {
+        "body": "We have applied a mitigation and are seeing recovery from the issue causing some ChatGPT web users to be unexpectedly logged out when refreshing the page. We’ll continue monitoring closely to confirm the recovery is sustained.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-21T20:36:33Z"
+      },
+      {
+        "body": "We’re investigating an issue causing some ChatGPT web users to be unexpectedly logged out when refreshing the page.",
+        "status": "investigating",
+        "updatedAt": "2026-08-21T19:48:34Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "c0ncxxm2wd9r",
+    "name": "Elevated errors on requests to multiple models",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-08-20T19:16:24.932Z",
+    "updatedAt": "2026-08-20T19:42:38.708Z",
+    "resolvedAt": "2026-08-20T19:42:38.692Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-20T19:42:38.692Z"
+      },
+      {
+        "body": "We are investigating elevated errors on requests to some Claude models. We will provide additional updates as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-20T19:16:25.070Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "6xskhw7rn4tf",
+    "name": "Elevated errors on Google connectors",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-20T18:32:13.296Z",
+    "updatedAt": "2026-08-20T19:01:03.861Z",
+    "resolvedAt": "2026-08-20T19:01:03.844Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-20T19:01:03.844Z"
+      },
+      {
+        "body": "We are investigating elevated errors affecting Google connectors (Sheets, Docs, Slides, and Chat) and custom Google integrations on Claude.ai. Core functionality is not affected. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-20T18:32:13.448Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01M0G1RZER839AZXWMYKSZF3GR",
+    "name": "Elevated Codex API authentication errors",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-20T16:58:53Z",
+    "updatedAt": "2026-08-20T17:52:16Z",
+    "resolvedAt": "2026-08-20T17:52:16Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-20T17:52:16Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-20T17:15:51Z"
+      },
+      {
+        "body": "Some users may encounter errors when using Codex with API authentication.\n\nWe are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-20T16:58:53Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01M0FQAR3NNH3ANVTQMBRD47DC",
+    "name": "Elevated Errors for Thinking mode in ChatGPT ",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-20T13:56:21Z",
+    "updatedAt": "2026-08-20T16:51:51Z",
+    "resolvedAt": "2026-08-20T16:51:51Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-20T16:51:51Z"
+      },
+      {
+        "body": "We have implemented a mitigation for the issue for elevated errors for Thinking Mode and Image Generation in ChatGPT/ChatGPT Work ",
+        "status": "monitoring",
+        "updatedAt": "2026-08-20T14:53:57Z"
+      },
+      {
+        "body": "We are investigating an issue causing some users to experience errors when using Thinking mode and Image Generation in ChatGPT.",
+        "status": "investigating",
+        "updatedAt": "2026-08-20T14:12:24Z"
+      },
+      {
+        "body": "We are investigating an issue causing some users to experience errors when using Thinking in ChatGPT.",
+        "status": "investigating",
+        "updatedAt": "2026-08-20T13:56:21Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01M0E7K87VJNMGW0QTMHPEQQ39",
+    "name": "Chatgpt.com is down - all signups and logins are down as of right now",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-20T00:02:08Z",
+    "updatedAt": "2026-08-27T16:08:49Z",
+    "resolvedAt": "2026-08-20T00:54:17Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-20T00:54:17Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-20T00:35:03Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-20T00:25:41Z"
+      },
+      {
+        "body": "We have identified that users are experiencing login issues for the impacted services.\n\nWe are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-20T00:03:27Z"
+      },
+      {
+        "body": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-20T00:02:08Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "hkcw95k7r0f4",
+    "name": "Degraded performance for Claude Opus 5 and Claude Haiku 4.5",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-19T09:42:37.414Z",
+    "updatedAt": "2026-08-19T11:02:18.277Z",
+    "resolvedAt": "2026-08-19T11:02:18.264Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-19T11:02:18.264Z"
+      },
+      {
+        "body": "A fix has been implemented and we are monitoring the results.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-19T10:33:56.680Z"
+      },
+      {
+        "body": "We have identified the cause of elevated errors on requests to Claude Opus 5 and Claude Haiku 4.5 and are working on a fix. We will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-08-19T09:42:37.541Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01M0B4WSV41BCFZ9VDWKSMQVSP",
+    "name": "Elevated errors deploying Sites",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-18T19:17:12Z",
+    "updatedAt": "2026-08-18T19:37:24Z",
+    "resolvedAt": "2026-08-18T19:37:24Z",
+    "updates": [
+      {
+        "body": "The issue affecting site deployments has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-18T19:37:24Z"
+      },
+      {
+        "body": "We have implemented a mitigation for the issue affecting site deployments and are monitoring the results.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-18T19:26:38Z"
+      },
+      {
+        "body": "We have identified an issue causing elevated errors when deploying Sites. We are working to implement a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-18T19:17:12Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "q7txxvbsftgq",
+    "name": "Degraded performance for multiple models",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-18T16:20:22.240Z",
+    "updatedAt": "2026-08-18T19:01:45.467Z",
+    "resolvedAt": "2026-08-18T19:01:45.447Z",
+    "updates": [
+      {
+        "body": "The issue affecting Claude Opus 5 has been resolved. Impact occurred from 16:11 to 18:23 UTC.",
+        "status": "resolved",
+        "updatedAt": "2026-08-18T19:01:45.447Z"
+      },
+      {
+        "body": "A fix has been implemented and we are monitoring the results.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-18T18:26:31.164Z"
+      },
+      {
+        "body": "We are investigating elevated errors on requests to Claude Opus 5. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-18T17:12:22.723Z"
+      },
+      {
+        "body": "We are investigating elevated errors on requests to Claude Mythos 5, Claude Fable 5, Claude Opus 5, Claude Sonnet 5, Claude Haiku 4.5, and other Claude models. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-18T16:20:49.566Z"
+      },
+      {
+        "body": "We are investigating reports of degraded performance affecting multiple models. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-18T16:20:22.385Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "zhk4v3yv1lsf",
+    "name": "Degraded performance for Claude Opus 5, Claude Sonnet 5",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-17T13:56:41.055Z",
+    "updatedAt": "2026-08-17T15:29:25.565Z",
+    "resolvedAt": "2026-08-17T15:29:25.545Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-17T15:29:25.545Z"
+      },
+      {
+        "body": "A fix has been implemented and we are monitoring the results.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-17T14:39:58.009Z"
+      },
+      {
+        "body": "Claude Opus 5 is operational. Claude Sonnet 5 is degraded. We are investigating.",
+        "status": "investigating",
+        "updatedAt": "2026-08-17T14:25:27.706Z"
+      },
+      {
+        "body": "We are investigating elevated errors on requests to Claude Opus 5. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-17T13:56:41.229Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "qt14v73myyy5",
+    "name": "Service disruption on Claude services",
+    "impact": "critical",
+    "status": "resolved",
+    "createdAt": "2026-08-16T21:58:56.949Z",
+    "updatedAt": "2026-08-16T22:34:39.051Z",
+    "resolvedAt": "2026-08-16T22:34:39.037Z",
+    "updates": [
+      {
+        "body": "The issue affecting claude.ai, platform.claude.com, the Claude API, Claude Code, and Claude Cowork has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-16T22:34:39.037Z"
+      },
+      {
+        "body": "A fix has been deployed for the issue affecting claude.ai, platform.claude.com, the Claude API, Claude Code, and Claude Cowork and we are monitoring for recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-16T22:22:35.586Z"
+      },
+      {
+        "body": "We are investigating reports of degraded performance affecting claude.ai, platform.claude.com, the Claude API, Claude Code, and Claude Cowork. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-16T22:02:03.684Z"
+      },
+      {
+        "body": "We are investigating an issue with users authenticating to claude.ai, Claude Code, and Claude Cowork. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-16T21:58:57.096Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "hdynq1pc0fn8",
+    "name": "Elevated errors for Claude Fable 5",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-08-14T23:57:16.567Z",
+    "updatedAt": "2026-08-15T00:27:36.913Z",
+    "resolvedAt": "2026-08-15T00:27:36.893Z",
+    "updates": [
+      {
+        "body": "The issue affecting Claude services has been resolved. Impact occurred from 20:00 Aug 14, 2026 to 00:11 Aug 15 , 2026 UTC.",
+        "status": "resolved",
+        "updatedAt": "2026-08-15T00:27:36.893Z"
+      },
+      {
+        "body": "We have identified the cause of the issue affecting Claude services and are working on a fix. We will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-08-15T00:21:20.192Z"
+      },
+      {
+        "body": "We have identified the cause of the issue affecting claude.ai and are working on a fix. We will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-08-15T00:20:36.020Z"
+      },
+      {
+        "body": "We have identified the cause of elevated errors on requests to Claude Fable 5 and are working on a fix. We will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-08-14T23:57:16.632Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "005ym4vzrq2w",
+    "name": "Service disruption on Claude services",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-08-14T20:30:36.289Z",
+    "updatedAt": "2026-08-14T21:58:12.714Z",
+    "resolvedAt": "2026-08-14T21:58:12.691Z",
+    "updates": [
+      {
+        "body": "The issue affecting the Claude API, Claude Code, and Claude Cowork has been resolved. Impact occurred from 20:14 to 20:38 UTC.",
+        "status": "resolved",
+        "updatedAt": "2026-08-14T21:58:12.691Z"
+      },
+      {
+        "body": "A fix has been deployed for the issue affecting the Claude API, Claude Code, and Claude Cowork and we are monitoring for recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-14T20:44:58.065Z"
+      },
+      {
+        "body": "We have identified the cause of the issue affecting the Claude API, Claude Code, and Claude Cowork and are working on a fix. We will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-08-14T20:44:05.962Z"
+      },
+      {
+        "body": "We are investigating reports of degraded performance affecting the Claude API, Claude Code, and Claude Cowork. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-14T20:30:36.389Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "kmbpgrsszf72",
+    "name": "Issues reaching status.claude.com",
+    "impact": "none",
+    "status": "resolved",
+    "createdAt": "2026-08-14T07:58:11.620Z",
+    "updatedAt": "2026-08-14T10:53:22.914Z",
+    "resolvedAt": "2026-08-14T10:53:22.898Z",
+    "updates": [
+      {
+        "body": "The issue resulting in users being unable to reach status.claude.com has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-14T10:53:22.898Z"
+      },
+      {
+        "body": "We are aware of issues with reaching status.claude.com, specifically regarding an invalid certificate issues. We are working to resolve these issues as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-14T07:58:11.666Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "whnd2z49x3xf",
+    "name": "Service disruption on Claude Code on the web and related services",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-14T00:36:42.423Z",
+    "updatedAt": "2026-08-14T10:28:21.922Z",
+    "resolvedAt": "2026-08-14T00:51:24.100Z",
+    "updates": [
+      {
+        "body": "The issue affecting Claude services has been resolved. Impact occurred from 23:42 to 00:50 UTC.",
+        "status": "resolved",
+        "updatedAt": "2026-08-14T00:51:24.100Z"
+      },
+      {
+        "body": "We are investigating degraded performance in Claude Code on the Web sessions and related products (Cowork Remote, Routines, Claude Code Mobile)",
+        "status": "investigating",
+        "updatedAt": "2026-08-14T00:36:42.488Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01KZXVAJQ5XFH7PTM43XVPQWGJ",
+    "name": "Elevated errors in ChatGPT conversations for Free users",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-13T15:19:50Z",
+    "updatedAt": "2026-08-13T23:58:22Z",
+    "resolvedAt": "2026-08-13T23:58:22Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-13T23:58:22Z"
+      },
+      {
+        "body": "We’ve applied a mitigation and are monitoring recovery following an issue with a downstream provider.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-13T22:07:55Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-13T16:54:25Z"
+      },
+      {
+        "body": "We are still implementing the mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-13T15:48:21Z"
+      },
+      {
+        "body": "We are investigating the issue for the listed services.",
+        "status": "investigating",
+        "updatedAt": "2026-08-13T15:19:50Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "j160kkjmm2n1",
+    "name": "Elevated errors for Claude Mythos 5, Claude Fable 5, and Claude Sonnet 5",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-08-13T14:33:45.159Z",
+    "updatedAt": "2026-08-14T10:28:21.995Z",
+    "resolvedAt": "2026-08-13T16:08:35.730Z",
+    "updates": [
+      {
+        "body": "The issue affecting Claude Mythos 5 and Claude Fable 5 has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-13T16:08:35.730Z"
+      },
+      {
+        "body": "We are investigating elevated errors on requests to Claude Mythos 5 and Claude Fable 5. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-13T15:44:45.692Z"
+      },
+      {
+        "body": "We are investigating elevated errors on requests to Claude Mythos 5, Claude Fable 5, and Claude Sonnet 5. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-13T14:33:45.313Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01KZXPZD4KHMQQFF09PSNNEZT8",
+    "name": "Error while creating custom RBAC roles for Enterprise users",
+    "impact": "none",
+    "status": "resolved",
+    "createdAt": "2026-08-13T14:03:49Z",
+    "updatedAt": "2026-08-13T22:26:53Z",
+    "resolvedAt": "2026-08-13T22:26:53Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-13T22:26:53Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-13T21:25:28Z"
+      },
+      {
+        "body": "We are continuing to implement the mitigation",
+        "status": "identified",
+        "updatedAt": "2026-08-13T18:48:44Z"
+      },
+      {
+        "body": "We are still implementing the mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-13T15:44:01Z"
+      },
+      {
+        "body": "We are still implementing the mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-13T14:49:49Z"
+      },
+      {
+        "body": "We are still implementing the mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-13T14:29:09Z"
+      },
+      {
+        "body": "We are investigating an issue while creating custom RBAC roles for Enterprise users.",
+        "status": "investigating",
+        "updatedAt": "2026-08-13T14:03:49Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "rk6gkg2gwfny",
+    "name": "Degraded performance for multiple models",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-12T13:50:28.458Z",
+    "updatedAt": "2026-08-14T10:28:22.072Z",
+    "resolvedAt": "2026-08-12T18:07:11.547Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-12T18:07:11.547Z"
+      },
+      {
+        "body": "We are continuing to work to resolve an issue resulting in slightly elevated errors on requests to Claude Fable 5. We will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-08-12T17:28:45.500Z"
+      },
+      {
+        "body": "We have identified an issue which resulted in errors across multiple models. At this time, errors are primarily impacting Claude Fable 5 and we are working to fully resolve these issues.",
+        "status": "identified",
+        "updatedAt": "2026-08-12T16:10:01.523Z"
+      },
+      {
+        "body": "We are investigating elevated errors on requests to multiple models. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-08-12T13:50:28.580Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01KZSC0T66YTVM57N5T79SV8ZV",
+    "name": "Increase in errors on API, Codex and Work Mode",
+    "impact": "none",
+    "status": "resolved",
+    "createdAt": "2026-08-11T21:35:23Z",
+    "updatedAt": "2026-08-11T22:42:26Z",
+    "resolvedAt": "2026-08-11T22:42:26Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-11T22:42:26Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-11T22:16:14Z"
+      },
+      {
+        "body": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-11T21:39:59Z"
+      },
+      {
+        "body": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-11T21:37:04Z"
+      },
+      {
+        "body": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-11T21:35:23Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01KZRXPE0NGXA12FJNP8WZF8D7",
+    "name": "Users unable to login to ads manager",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-11T17:25:03Z",
+    "updatedAt": "2026-08-11T17:28:04Z",
+    "resolvedAt": "2026-08-11T17:28:04Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-11T17:28:04Z"
+      },
+      {
+        "body": "We have identified that users are are unable to login to ads manager.\n\nWe are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-11T17:25:03Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01KZRJHTR75WDXCMC0ZERX6YJC",
+    "name": "Elevated errors affecting ChatGPT Go conversations",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-11T14:10:18Z",
+    "updatedAt": "2026-08-11T14:20:28Z",
+    "resolvedAt": "2026-08-11T14:20:28Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-11T14:20:28Z"
+      },
+      {
+        "body": "We are investigating the issue for the listed services.",
+        "status": "investigating",
+        "updatedAt": "2026-08-11T14:10:18Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01KZRE6ZA1RE1ZH4HQ111CX1S8",
+    "name": "Increased error rates",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-11T12:54:28Z",
+    "updatedAt": "2026-08-11T15:01:38Z",
+    "resolvedAt": "2026-08-11T15:01:38Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-11T15:01:38Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-11T14:57:45Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-11T14:32:02Z"
+      },
+      {
+        "body": "We are investigating the issue for the listed services.",
+        "status": "investigating",
+        "updatedAt": "2026-08-11T13:20:55Z"
+      },
+      {
+        "body": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-11T12:54:28Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KZPQXCAN9JRD0HPMAXTWG38P",
+    "name": "Delayed scaling due to node failure",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-10T21:05:30Z",
+    "updatedAt": "2026-08-10T21:45:44Z",
+    "resolvedAt": "2026-08-10T21:45:44Z",
+    "updates": [
+      {
+        "body": "All affected models have been scaling correctly for more than 30 minutes at this point, and we see no residual prediction queues. Thank you for your patience!",
+        "status": "resolved",
+        "updatedAt": "2026-08-10T21:45:44Z"
+      },
+      {
+        "body": "Scaling decisions were delayed by nearly 1 hour after the controller responsible for emitting queue metrics failed to schedule on a soft-failed node. We have since cordoned and drained the node, and the controller is emitting queue metrics again.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-10T21:05:30Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01KZNZTPWMV06Z6TQNMY1R1QDR",
+    "name": "Increased error rates",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-10T14:04:37Z",
+    "updatedAt": "2026-08-11T02:48:20Z",
+    "resolvedAt": "2026-08-11T02:48:20Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-11T02:48:20Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-10T15:07:54Z"
+      },
+      {
+        "body": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation.",
+        "status": "investigating",
+        "updatedAt": "2026-08-10T14:04:37Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01KZN8RYNZY8T4QQGB3JWMPYRW",
+    "name": "Increased errors for some ChatGPT users",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-10T07:21:42Z",
+    "updatedAt": "2026-08-10T08:09:19Z",
+    "resolvedAt": "2026-08-10T08:09:19Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-10T08:09:19Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-10T08:04:21Z"
+      },
+      {
+        "body": "We have identified that users are experiencing elevated errors for the impacted services.\n\nWe are working on implementing a mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-10T07:21:42Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01KZ9PT7Y2QKNJDK8XC1KAX3WQ",
+    "name": "Documentation Content Loading Issues",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-08-05T19:36:11Z",
+    "updatedAt": "2026-08-05T20:35:00Z",
+    "resolvedAt": "2026-08-05T20:33:38Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2026-08-05T20:35:00Z"
+      },
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2026-08-05T20:33:38Z"
+      },
+      {
+        "body": "We are investigating a partial outage affecting our documentation site. Some documentation pages may not load correctly due to an ongoing issue with our upstream documentation provider (Fern). We are monitoring the incident and will share updates as they become available.",
+        "status": "investigating",
+        "updatedAt": "2026-08-05T19:36:11Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01KZ9E7QD8WFJD5DMF73QGVYH8",
+    "name": "Elevated errors in ChatGPT conversations with files",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-05T17:06:16Z",
+    "updatedAt": "2026-08-05T20:19:28Z",
+    "resolvedAt": "2026-08-05T20:19:28Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-05T20:19:28Z"
+      },
+      {
+        "body": "Error rates affecting ChatGPT conversations that use files and images have improved. We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-05T17:06:16Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01KZ9DMQD2GJ8JJWDN7572RH78",
+    "name": "Issues with Custom GPT actions",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-05T16:55:54Z",
+    "updatedAt": "2026-08-05T22:49:08Z",
+    "resolvedAt": "2026-08-05T22:49:08Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-05T22:49:08Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-05T22:46:21Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-05T19:03:27Z"
+      },
+      {
+        "body": "We are still implementing the mitigation.",
+        "status": "identified",
+        "updatedAt": "2026-08-05T18:28:00Z"
+      },
+      {
+        "body": "We are investigating the issue for the listed services.",
+        "status": "investigating",
+        "updatedAt": "2026-08-05T16:55:54Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01KZ96S5HEWX0CX26W2WFYFKE6",
+    "name": "Elevated errors with image generation",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-05T14:55:59Z",
+    "updatedAt": "2026-08-05T23:22:45Z",
+    "resolvedAt": "2026-08-05T23:22:45Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-05T23:22:45Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-05T15:28:25Z"
+      },
+      {
+        "body": "We are investigating elevated errors affecting image generation. Some users may experience failed image generation requests. We are working to reduce the errors and will provide another update as we learn more.",
+        "status": "identified",
+        "updatedAt": "2026-08-05T14:55:59Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "mgp99sn4ynd4",
+    "name": "Degraded performance for Claude Opus 5",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-05T13:51:30.287Z",
+    "updatedAt": "2026-08-14T10:28:22.148Z",
+    "resolvedAt": "2026-08-05T14:34:15.264Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-05T14:34:15.264Z"
+      },
+      {
+        "body": "We have identified the cause of elevated errors on requests to Claude Opus 5 and are working on a fix. We will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-08-05T13:51:30.433Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KZ8M4B3HEE1HT5A4K6FRA5Q4",
+    "name": "Significant degradation",
+    "impact": "none",
+    "status": "resolved",
+    "createdAt": "2026-08-05T09:30:02Z",
+    "updatedAt": "2026-08-05T11:33:48Z",
+    "resolvedAt": "2026-08-05T11:33:48Z",
+    "updates": [
+      {
+        "body": "We have been monitoring for a while and services seem to be back. Thank you for your patience",
+        "status": "resolved",
+        "updatedAt": "2026-08-05T11:33:48Z"
+      },
+      {
+        "body": "We have made significant progress in recovering the services, and most traffic should be flowing normal. We are monitoring to make sure all traffic is recovered before closing the incident",
+        "status": "monitoring",
+        "updatedAt": "2026-08-05T11:25:35Z"
+      },
+      {
+        "body": "We are aware of a significant degradation with the service. We have identified the root cause and are taking steps to mitigate. Please hold tight for further information.",
+        "status": "investigating",
+        "updatedAt": "2026-08-05T09:30:02Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "f6gkkq6txl7z",
+    "name": "Degraded performance of multiple models",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-05T07:05:54.000Z",
+    "updatedAt": "2026-08-14T10:28:22.232Z",
+    "resolvedAt": "2026-08-05T14:14:36.006Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-05T14:14:36.006Z"
+      },
+      {
+        "body": "A fix has been deployed for the issue affecting Claude services and we are monitoring for recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-05T13:08:34.240Z"
+      },
+      {
+        "body": "We are continuing to work on a fix for this issue.",
+        "status": "identified",
+        "updatedAt": "2026-08-05T09:13:49.089Z"
+      },
+      {
+        "body": "We have identified the cause of elevated errors on requests to Claude Mythos 5, Claude Fable 5, and Claude Opus 5, Claude Sonnet 5 and are working on a fix. We will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-08-05T09:13:43.856Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "bdr3fq2rkchr",
+    "name": "Elevated errors across many models",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-08-04T20:48:20.773Z",
+    "updatedAt": "2026-08-14T10:28:22.312Z",
+    "resolvedAt": "2026-08-04T21:59:29.385Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-04T21:59:29.385Z"
+      },
+      {
+        "body": "We have identified an issue which resulted in some users experiencing issues when attempting to log into Anthropic services, including Claude.ai and Claude Code via oAuth. Additionally, some users saw errors when making requests to models. At this time, we have seen success rates recover and are monitoring closely to ensure there are no further issues.",
+        "status": "investigating",
+        "updatedAt": "2026-08-04T21:04:57.330Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-08-04T20:48:20.910Z"
+      }
+    ]
+  },
+  {
+    "providerId": "openai",
+    "providerName": "OpenAI",
+    "id": "01KZ6CT9K9Q52S3707W75MNBGB",
+    "name": "Elevated ChatGPT conversation errors affecting Plus, Pro, Business, and Edu users",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-04T12:43:44Z",
+    "updatedAt": "2026-08-04T15:25:30Z",
+    "resolvedAt": "2026-08-04T15:25:30Z",
+    "updates": [
+      {
+        "body": "All impacted services have now fully recovered.",
+        "status": "resolved",
+        "updatedAt": "2026-08-04T15:25:30Z"
+      },
+      {
+        "body": "We have applied the mitigation and are monitoring the recovery.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-04T12:57:49Z"
+      },
+      {
+        "body": "We are investigating elevated errors affecting ChatGPT conversations. Some users may experience failed or interrupted responses, and some conversation turns may not be saved. The issue is affecting users across Plus, Pro, Business and Edu ChatGPT plans.",
+        "status": "investigating",
+        "updatedAt": "2026-08-04T12:43:44Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "nlg5hjdfphmb",
+    "name": "Elevated errors on Claude Sonnet 5",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-04T11:27:20.691Z",
+    "updatedAt": "2026-08-14T10:28:22.405Z",
+    "resolvedAt": "2026-08-04T11:52:10.820Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-04T11:52:10.820Z"
+      },
+      {
+        "body": "A fix has been implemented and we are monitoring the results.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-04T11:37:04.865Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-08-04T11:27:20.861Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "8k9mjhq7wmv3",
+    "name": "Elevated errors on Claude Sonnet 5",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-04T06:16:33.847Z",
+    "updatedAt": "2026-08-14T10:28:22.505Z",
+    "resolvedAt": "2026-08-04T06:55:43.194Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-04T06:55:43.194Z"
+      },
+      {
+        "body": "A fix has been implemented and we are monitoring the results.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-04T06:28:24.583Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-08-04T06:16:34.035Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "dnl3q35xkn3s",
+    "name": "Degraded performance on Claude Sonnet 5",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-03T15:13:45.862Z",
+    "updatedAt": "2026-08-14T10:28:22.586Z",
+    "resolvedAt": "2026-08-03T15:29:01.564Z",
+    "updates": [
+      {
+        "body": "As of 15:20 UTC (8:20am PT), error rates on Claude Sonnet 5 have returned to baseline. This incident is resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-03T15:29:01.564Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-08-03T15:13:46.005Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "ch7k4vh9fr1y",
+    "name": "Error rates across multiple models",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-08-03T12:52:52.852Z",
+    "updatedAt": "2026-08-14T10:28:22.663Z",
+    "resolvedAt": "2026-08-03T14:17:14.797Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-08-03T14:17:14.797Z"
+      },
+      {
+        "body": "A fix has been implemented and we are monitoring the results.",
+        "status": "monitoring",
+        "updatedAt": "2026-08-03T13:30:14.973Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-08-03T12:52:53.003Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KZ1KT2QH1ECFVCZ8FM1A1XMA",
+    "name": "API degraded for A100s",
+    "impact": "none",
+    "status": "resolved",
+    "createdAt": "2026-08-02T16:09:45Z",
+    "updatedAt": "2026-08-02T16:18:43Z",
+    "resolvedAt": "2026-08-02T16:18:43Z",
+    "updates": [
+      {
+        "body": "We have restarted the affected component and service should be back to normal. Thank you for your patience",
+        "status": "resolved",
+        "updatedAt": "2026-08-02T16:18:43Z"
+      },
+      {
+        "body": "The API for creating predictions for A100s is currently degraded as a piece of backing infrastructure failed. We are working on getting it back online",
+        "status": "identified",
+        "updatedAt": "2026-08-02T16:09:45Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KYX11Z49YYHB35Q9A21H44G4",
+    "name": "Degraded scale-out due to failed setups pulling from huggingface",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-31T21:25:03Z",
+    "updatedAt": "2026-07-31T23:39:34Z",
+    "resolvedAt": "2026-07-31T23:39:34Z",
+    "updates": [
+      {
+        "body": "We're looking stable now, and with caching back on. Thanks again for your patience!",
+        "status": "resolved",
+        "updatedAt": "2026-07-31T23:39:34Z"
+      },
+      {
+        "body": "All affected hardware types have recovered and we are continuing to monitor and troubleshoot. Thanks for your patience!",
+        "status": "monitoring",
+        "updatedAt": "2026-07-31T22:27:50Z"
+      },
+      {
+        "body": "We have confirmed that turning off our caching layer for huggingface downloads allows models to successfully set up, so we are making that change for all models while we continue to troubleshoot.",
+        "status": "identified",
+        "updatedAt": "2026-07-31T21:26:39Z"
+      },
+      {
+        "body": "Models that pull from huggingface during setup have not been succeeding, which is resulting in scale-out delays and queue backups.",
+        "status": "identified",
+        "updatedAt": "2026-07-31T21:25:03Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "jq4x54h69z76",
+    "name": "Degraded performance on Claude Sonnet 5",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-31T06:18:08.068Z",
+    "updatedAt": "2026-08-14T10:28:22.745Z",
+    "resolvedAt": "2026-07-31T07:04:49.691Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-31T07:04:49.691Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-31T06:18:08.190Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "kqjy03gs895j",
+    "name": "Degraded performance on Claude Opus 4.8",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-30T13:43:19.847Z",
+    "updatedAt": "2026-08-14T10:28:22.827Z",
+    "resolvedAt": "2026-07-30T14:24:12.155Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-30T14:24:12.155Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-30T13:43:19.966Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "fsh2zzzl2c4l",
+    "name": "Elevated errors across many models",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-07-30T05:57:43.524Z",
+    "updatedAt": "2026-08-14T10:28:22.909Z",
+    "resolvedAt": "2026-07-30T10:48:56.631Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-30T10:48:56.631Z"
+      },
+      {
+        "body": "We are also investigating issues with Opus 4.7 and Opus 4.5.",
+        "status": "monitoring",
+        "updatedAt": "2026-07-30T10:23:09.989Z"
+      },
+      {
+        "body": "As of 2:58 PT / 9:58 UTC the errors are back to baseline.",
+        "status": "monitoring",
+        "updatedAt": "2026-07-30T10:03:45.473Z"
+      },
+      {
+        "body": "As of 01:33 PT / 08:33 UTC we are back to errors across all models.",
+        "status": "identified",
+        "updatedAt": "2026-07-30T08:33:35.767Z"
+      },
+      {
+        "body": "As of 8:05 UTC / 1:05 PT, Sonnet 5 errors are back to baseline, but we're seeing an increased error rate on Fable 5.",
+        "status": "identified",
+        "updatedAt": "2026-07-30T08:06:25.220Z"
+      },
+      {
+        "body": "As of 7:32 UTC / 0:32 PT, Opus 5 errors are back to baseline but we're seeing again Sonnet 5's errors up.",
+        "status": "identified",
+        "updatedAt": "2026-07-30T07:33:15.347Z"
+      },
+      {
+        "body": "All models except Opus 5 have recovered. We're working to recover Opus 5 as well.",
+        "status": "identified",
+        "updatedAt": "2026-07-30T06:26:26.771Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-30T05:57:43.629Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "q2kg8n613kr3",
+    "name": "Elevated errors across all models",
+    "impact": "critical",
+    "status": "resolved",
+    "createdAt": "2026-07-29T19:49:45.388Z",
+    "updatedAt": "2026-08-14T10:28:22.996Z",
+    "resolvedAt": "2026-07-29T22:36:20.701Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-29T22:36:20.701Z"
+      },
+      {
+        "body": "From 12:45 PT / 19:45 UTC through to 1:26 PT / 21:26 UTC, we saw elevated rates of errors across Claude models. We have seen recovery in success rates across all models and are monitoring closely to ensure no further issues.",
+        "status": "monitoring",
+        "updatedAt": "2026-07-29T22:20:16.308Z"
+      },
+      {
+        "body": "We are continuing to work to fully resolve issues resulting in elevated requests and latency to Claude models. At this time, we are seeing recovery across most models. We will provide an additional update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-07-29T21:38:34.218Z"
+      },
+      {
+        "body": "We have identified an issue resulting in elevated errors across multiple models, and are working to resolve this. We will provide an update as soon as possible.",
+        "status": "identified",
+        "updatedAt": "2026-07-29T20:33:45.585Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-29T19:49:45.537Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "rkk5x44tndw9",
+    "name": "Elevated errors on Claude Opus 5 and Haiku 4.5",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-27T13:39:52.265Z",
+    "updatedAt": "2026-08-14T10:28:23.075Z",
+    "resolvedAt": "2026-07-27T14:36:43.730Z",
+    "updates": [
+      {
+        "body": "As of 7:34 PST / 14:34 UTC the errors have returned to baseline.",
+        "status": "resolved",
+        "updatedAt": "2026-07-27T14:36:43.730Z"
+      },
+      {
+        "body": "Haiku 4.5 is also returning errors.",
+        "status": "investigating",
+        "updatedAt": "2026-07-27T14:04:20.107Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-27T13:42:00.205Z"
+      },
+      {
+        "body": "We are continuing to investigate this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-27T13:41:01.215Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-27T13:39:52.411Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "mfdtrknpxghq",
+    "name": "Elevated errors on Claude Opus 5",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-27T11:27:38.071Z",
+    "updatedAt": "2026-08-14T10:28:23.153Z",
+    "resolvedAt": "2026-07-27T12:30:22.946Z",
+    "updates": [
+      {
+        "body": "As of 4:47 PST / 11:47 UTC the errors have returned to baseline.",
+        "status": "resolved",
+        "updatedAt": "2026-07-27T12:30:22.946Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-27T11:27:38.236Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "lhqp09kxq7pb",
+    "name": "Elevated errors on Claude Opus 5",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-27T08:16:57.590Z",
+    "updatedAt": "2026-08-14T10:28:23.231Z",
+    "resolvedAt": "2026-07-27T09:05:24.911Z",
+    "updates": [
+      {
+        "body": "As of 2:03 PST / 9:03 UTC the errors have returned to baseline.",
+        "status": "resolved",
+        "updatedAt": "2026-07-27T09:05:24.911Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-27T08:16:57.779Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "zftg3gqkmv18",
+    "name": "Elevated errors for Opus 5",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-07-26T09:17:12.697Z",
+    "updatedAt": "2026-08-14T10:28:23.314Z",
+    "resolvedAt": "2026-07-26T10:44:14.944Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-26T10:44:14.944Z"
+      },
+      {
+        "body": "A fix has been implemented and we are monitoring the results.",
+        "status": "monitoring",
+        "updatedAt": "2026-07-26T10:34:04.307Z"
+      },
+      {
+        "body": "We are continuing to work on a fix for this issue.",
+        "status": "identified",
+        "updatedAt": "2026-07-26T10:28:21.642Z"
+      },
+      {
+        "body": "The issue has been identified and a fix is being implemented.",
+        "status": "identified",
+        "updatedAt": "2026-07-26T09:45:34.817Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-26T09:17:12.835Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "j6gv862066n7",
+    "name": "Elevated errors for Claude Fable 5, Claude Sonnet 5, Claude Haiku 4.5, and other models",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-07-25T21:34:51.173Z",
+    "updatedAt": "2026-08-14T10:28:23.420Z",
+    "resolvedAt": "2026-07-25T22:08:41.677Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-25T22:08:41.677Z"
+      },
+      {
+        "body": "We are investigating elevated errors on requests to Claude Fable 5, Claude Sonnet 5, Claude Haiku 4.5, and other Claude models. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-07-25T21:34:51.279Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "f1q2wvw4qj4j",
+    "name": "Elevated errors for Mythos 5, Fable 5, Opus 5 and Claude Haiku 4.5",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-07-25T18:40:31.869Z",
+    "updatedAt": "2026-08-14T10:28:23.500Z",
+    "resolvedAt": "2026-07-25T19:44:32.851Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-25T19:44:32.851Z"
+      },
+      {
+        "body": "The issue has been identified and a fix is being implemented.",
+        "status": "identified",
+        "updatedAt": "2026-07-25T18:44:12.567Z"
+      },
+      {
+        "body": "We are investigating elevated errors on requests to Claude Mythos 5, Claude Fable 5, and Claude Haiku 4.5. We will provide an update as soon as possible.",
+        "status": "investigating",
+        "updatedAt": "2026-07-25T18:40:32.032Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "1019wwb67615",
+    "name": "Sonnet 4.6 and Sonnet 5 errors elevated",
+    "impact": "none",
+    "status": "resolved",
+    "createdAt": "2026-07-25T18:13:01.000Z",
+    "updatedAt": "2026-08-14T10:28:23.571Z",
+    "resolvedAt": "2026-07-25T18:13:01.000Z",
+    "updates": [
+      {
+        "body": "For approximately 10 minutes, error rates on Sonnet 4.6 and 5 were elevated. Service returned to normal at approximately 11:07a PDT.",
+        "status": "resolved",
+        "updatedAt": "2026-07-25T18:14:56.479Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "0lbk5m7mbqk5",
+    "name": "Elevated error rate on Opus 4.8",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-24T09:09:56.943Z",
+    "updatedAt": "2026-08-14T10:28:23.741Z",
+    "resolvedAt": "2026-07-24T10:22:06.541Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-24T10:22:06.541Z"
+      },
+      {
+        "body": "A fix has been implemented and we are monitoring the results.",
+        "status": "monitoring",
+        "updatedAt": "2026-07-24T09:35:08.533Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-24T09:09:57.094Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01KY8K3GWWJTSJTRC17GHEH08Z",
+    "name": "Dashboard Login Service Disruption",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-07-23T22:56:25Z",
+    "updatedAt": "2026-07-23T23:46:57Z",
+    "resolvedAt": "2026-07-23T23:46:56Z",
+    "updates": [
+      {
+        "body": "🎉 The issue affecting Dashboard login has been resolved. All Cohere services are operating normally. Thank you for your patience while we worked through this.",
+        "status": "resolved",
+        "updatedAt": "2026-07-23T23:46:56Z"
+      },
+      {
+        "body": "👀 The issue affecting Dashboard login has been resolved ✅. We're monitoring to confirm stability. All Cohere services are operating normally.",
+        "status": "monitoring",
+        "updatedAt": "2026-07-23T23:36:27Z"
+      },
+      {
+        "body": "🛠️ **Update:** We have identified the cause of login issues affecting the Cohere Dashboard, preventing successful logins. A fix is being implemented now and we expect Dashboard login to be restored shortly.\n\n**Note:** API access, model inference, and all other Cohere services are **unaffected** and operating normally.",
+        "status": "identified",
+        "updatedAt": "2026-07-23T23:27:24Z"
+      },
+      {
+        "body": "🔎 We are currently investigating an issue affecting the Cohere Dashboard ([dashboard.cohere.com](http://dashboard.cohere.com \"dashboard.cohere.com\")). Users may experience a continuous refresh loop on the login page, preventing successful authentication.",
+        "status": "investigating",
+        "updatedAt": "2026-07-23T22:56:25Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "db1mh1r2zrn5",
+    "name": "Elevated errors on Haiku 4.5",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-22T23:52:59.578Z",
+    "updatedAt": "2026-08-14T10:28:23.819Z",
+    "resolvedAt": "2026-07-23T00:10:17.291Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-23T00:10:17.291Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-22T23:52:59.694Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "yc7mr2gvl914",
+    "name": "Microsoft Office add-in availability",
+    "impact": "none",
+    "status": "resolved",
+    "createdAt": "2026-07-22T17:56:10.087Z",
+    "updatedAt": "2026-08-14T10:28:23.655Z",
+    "resolvedAt": "2026-07-24T15:36:54.682Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-24T15:36:54.682Z"
+      },
+      {
+        "body": "Users who installed the following add-ins may experience issues accessing the add-in functionality: Claude by Anthropic for PowerPoint, Claude by Anthropic for Word, and Claude by Anthropic for Excel. \n\nTo regain immediate access to Claude for Microsoft 365, install the add-in here: https://marketplace.microsoft.com/en-us/product/office/wa200010725",
+        "status": "identified",
+        "updatedAt": "2026-07-22T17:56:10.127Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "ng5shnqxj1r7",
+    "name": "Service disruption on Claude Services",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-22T17:27:36.523Z",
+    "updatedAt": "2026-08-14T10:28:23.904Z",
+    "resolvedAt": "2026-07-22T17:45:37.482Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-22T17:45:37.482Z"
+      },
+      {
+        "body": "The issue has been identified and a fix is being implemented.",
+        "status": "identified",
+        "updatedAt": "2026-07-22T17:28:16.730Z"
+      },
+      {
+        "body": "We are investigating an outage affecting features such as document creation in claude.ai, Cowork Remote, Claude Code, Claude Code on the Web, Claude Tag, and Claude Design",
+        "status": "investigating",
+        "updatedAt": "2026-07-22T17:27:36.607Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "6h7589wl6l45",
+    "name": "Elevated error rates for Sonnet 5",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-22T15:24:05.453Z",
+    "updatedAt": "2026-08-14T10:28:23.984Z",
+    "resolvedAt": "2026-07-22T16:12:32.364Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-22T16:12:32.364Z"
+      },
+      {
+        "body": "The issue has been identified and a fix is being implemented.",
+        "status": "identified",
+        "updatedAt": "2026-07-22T15:36:57.934Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-22T15:24:05.590Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "f7w8qkd8z57f",
+    "name": "Elevated errors on Opus 4.8 and Haiku 4.5",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-22T13:37:28.237Z",
+    "updatedAt": "2026-08-14T10:28:24.067Z",
+    "resolvedAt": "2026-07-22T15:23:37.914Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-22T15:23:37.914Z"
+      },
+      {
+        "body": "A fix has been implemented and we are monitoring the results.",
+        "status": "monitoring",
+        "updatedAt": "2026-07-22T15:06:53.522Z"
+      },
+      {
+        "body": "We are continuing to work on a fix for this issue. Haiku 4.5 has recovered",
+        "status": "identified",
+        "updatedAt": "2026-07-22T14:18:33.863Z"
+      },
+      {
+        "body": "The issue has been identified and a fix is being implemented.",
+        "status": "identified",
+        "updatedAt": "2026-07-22T14:16:33.665Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-22T13:37:28.369Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KY4TME64AS56YNAQ74W0N2CG",
+    "name": "Hitting GPU Capacity for H100s creating large queue times for some models",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-22T11:51:02Z",
+    "updatedAt": "2026-07-23T14:19:58Z",
+    "resolvedAt": "2026-07-23T14:19:58Z",
+    "updates": [
+      {
+        "body": "This issue is resolved",
+        "status": "resolved",
+        "updatedAt": "2026-07-23T14:19:58Z"
+      },
+      {
+        "body": "This issue is now resolved",
+        "status": "monitoring",
+        "updatedAt": "2026-07-23T03:05:49Z"
+      },
+      {
+        "body": "GPU usage is back below capacity. We're continuing to monitor.",
+        "status": "monitoring",
+        "updatedAt": "2026-07-22T17:11:16Z"
+      },
+      {
+        "body": "We are over provisioned on H100s currently which is causing long queue times for some models running on H100s",
+        "status": "identified",
+        "updatedAt": "2026-07-22T11:51:02Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "xvbzmkjbzh0x",
+    "name": "Elevated errors for Claude Opus 4.1",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-22T08:34:31.885Z",
+    "updatedAt": "2026-08-14T10:28:24.146Z",
+    "resolvedAt": "2026-07-22T09:00:25.206Z",
+    "updates": [
+      {
+        "body": "This incident has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-22T09:00:25.206Z"
+      },
+      {
+        "body": "A fix has been implemented and we are monitoring the results.",
+        "status": "monitoring",
+        "updatedAt": "2026-07-22T08:45:27.071Z"
+      },
+      {
+        "body": "The issue has been identified and a fix is being implemented.",
+        "status": "identified",
+        "updatedAt": "2026-07-22T08:34:32.024Z"
+      }
+    ]
+  },
+  {
+    "providerId": "anthropic",
+    "providerName": "Anthropic",
+    "id": "vcynh9cf33xp",
+    "name": "Elevated errors on several models",
+    "impact": "critical",
+    "status": "resolved",
+    "createdAt": "2026-07-21T15:35:03.996Z",
+    "updatedAt": "2026-08-14T10:28:24.229Z",
+    "resolvedAt": "2026-07-21T18:18:55.036Z",
+    "updates": [
+      {
+        "body": "From 8:28am PT / 15:28 UTC through 9:26am PT / 16:26 UTC users experienced elevated errors on requests to multiple Claude models. This issue has been resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-07-21T18:18:55.036Z"
+      },
+      {
+        "body": "A fix has been implemented and we are monitoring the results.",
+        "status": "monitoring",
+        "updatedAt": "2026-07-21T17:07:34.956Z"
+      },
+      {
+        "body": "The issue has been identified and a fix is being implemented.",
+        "status": "identified",
+        "updatedAt": "2026-07-21T15:51:57.805Z"
+      },
+      {
+        "body": "We are currently investigating this issue.",
+        "status": "investigating",
+        "updatedAt": "2026-07-21T15:35:04.165Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KXN0VFGEEGTX7S8GE91WERCM",
+    "name": "HuggingFace download issues",
+    "impact": "none",
+    "status": "resolved",
+    "createdAt": "2026-07-16T08:31:53Z",
+    "updatedAt": "2026-07-16T16:04:50Z",
+    "resolvedAt": "2026-07-16T16:04:50Z",
+    "updates": [
+      {
+        "body": "We have not seen elevated rates of HuggingFace/model setup errors for a couple hours now, so we believe this incident is cleared",
+        "status": "resolved",
+        "updatedAt": "2026-07-16T16:04:50Z"
+      },
+      {
+        "body": "Still seeing signs of improvement, most models are able to spin up with a few still waiting their turn from HuggingFace. Models should spin up after enough tries if they are failing for HuggingFace related reasons.",
+        "status": "monitoring",
+        "updatedAt": "2026-07-16T09:46:07Z"
+      },
+      {
+        "body": "We have seen most HuggingFace calls start succeeding, except for a small subset that are being downloaded through [cas-bridge.xethub.hf.co](http://cas-bridge.xethub.hf.co \"cas-bridge.xethub.hf.co\"). Most models are now succeeding to spin up",
+        "status": "monitoring",
+        "updatedAt": "2026-07-16T09:28:51Z"
+      },
+      {
+        "body": "HuggingFace is reporting recovery, which we are also seeing on our end. However, we still see minor degradation, which we believe is due to thundering herd once the main issue was resolved. We are still keeping an eye out, but believe we are recovering",
+        "status": "monitoring",
+        "updatedAt": "2026-07-16T09:10:51Z"
+      },
+      {
+        "body": "We are aware of 504s being returned by models that reach out to HuggingFace during setup. We believe this is likely related to the disruption visible at [https://status.huggingface.co/](https://status.huggingface.co/ \"https://status.huggingface.co/\").  We are monitoring and will update when we can identify the HuggingFace CDN is back up/",
+        "status": "investigating",
+        "updatedAt": "2026-07-16T08:31:53Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KXE4TQD8ATRS63BAEBKR8MVV",
+    "name": "H100 GPU shortage resulting in high queue times",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-13T16:26:41Z",
+    "updatedAt": "2026-07-14T17:27:56Z",
+    "resolvedAt": "2026-07-14T17:27:56Z",
+    "updates": [
+      {
+        "body": "H100 capacity has returned to normal levels",
+        "status": "resolved",
+        "updatedAt": "2026-07-14T17:27:56Z"
+      },
+      {
+        "body": "We pushed a fix and are monitoring",
+        "status": "monitoring",
+        "updatedAt": "2026-07-13T17:48:26Z"
+      },
+      {
+        "body": "Long queue times, especially on BFL models",
+        "status": "investigating",
+        "updatedAt": "2026-07-13T16:26:41Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KX684W0X19CPC7BNG6HHK9QD",
+    "name": "High contention on H100 hardware",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-07-10T14:50:44Z",
+    "updatedAt": "2026-07-10T23:04:11Z",
+    "resolvedAt": "2026-07-10T23:04:11Z",
+    "updates": [
+      {
+        "body": "We are back under max capacity for H100 hardware. Thank you for your patience!",
+        "status": "resolved",
+        "updatedAt": "2026-07-10T23:04:11Z"
+      },
+      {
+        "body": "We are seeing high contention on H100 hardware which is resulting in delays on predictions and scale-out.",
+        "status": "monitoring",
+        "updatedAt": "2026-07-10T14:50:44Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KWCD0JR4AVPH3WPZ9BYXGMDN",
+    "name": "Limited H100 capacity",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-06-30T13:55:31Z",
+    "updatedAt": "2026-06-30T19:29:40Z",
+    "resolvedAt": "2026-06-30T19:29:40Z",
+    "updates": [
+      {
+        "body": "The H100 capacity is back in good health. Thanks for your patience!",
+        "status": "resolved",
+        "updatedAt": "2026-06-30T19:29:40Z"
+      },
+      {
+        "body": "We recently received a sharp increase in demand for H100 capacity which is resulting in delayed scale-out and queue backup.",
+        "status": "identified",
+        "updatedAt": "2026-06-30T13:55:31Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KT7A7ZTBDV40CGXJJ302ZMWP",
+    "name": "We're seeing long setup times and high contention for models on some L40S and H200 clusters.",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-06-03T17:59:32Z",
+    "updatedAt": "2026-06-03T19:06:24Z",
+    "resolvedAt": "2026-06-03T19:06:24Z",
+    "updates": [
+      {
+        "body": "System is back to operating normally",
+        "status": "resolved",
+        "updatedAt": "2026-06-03T19:06:24Z"
+      },
+      {
+        "body": "System is back to operating normally",
+        "status": "investigating",
+        "updatedAt": "2026-06-03T19:06:07Z"
+      },
+      {
+        "body": "We're seeing long setup times and high contention for models on some L40S and H200 clusters.",
+        "status": "investigating",
+        "updatedAt": "2026-06-03T17:59:32Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01KT1Q9429CJT35B330BY5GGTF",
+    "name": "/audio/transcriptions endpoint returns error for audio files with unexpected sampling rate",
+    "impact": "none",
+    "status": "resolved",
+    "createdAt": "2026-06-01T13:51:54Z",
+    "updatedAt": "2026-06-01T16:46:21Z",
+    "resolvedAt": "2026-06-01T16:46:21Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2026-06-01T16:46:21Z"
+      },
+      {
+        "body": "/audio/transcriptions endpoints availability is affected now due to the Cohere ASR model backing the endpoint throws error for any audio inputs that are in the expected sampling rate. Previously these sampling rate audio files were accepted and processed, marking this as a regression type incident.\n\n\n:hammer_and_wrench: We have identified the root cause of the incident, and are working diligently to fix.",
+        "status": "identified",
+        "updatedAt": "2026-06-01T13:51:55Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KSQ91G03BYMZB5HH20TQ4W1T",
+    "name": "Degraded performance on flux-2-klein-4b",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-05-28T12:30:40Z",
+    "updatedAt": "2026-05-28T14:17:52Z",
+    "resolvedAt": "2026-05-28T14:17:52Z",
+    "updates": [
+      {
+        "body": "This issue has been resolved and queue times are back to normal",
+        "status": "resolved",
+        "updatedAt": "2026-05-28T14:17:52Z"
+      },
+      {
+        "body": "Long queue times for black-forest-labs/flux-2-klein-4b resulting in canceled predictions",
+        "status": "investigating",
+        "updatedAt": "2026-05-28T12:30:40Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KS67KCNDDR9BH7MTX9X5PQ90",
+    "name": "Prediction and Training status updates delayed",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-05-21T21:38:24Z",
+    "updatedAt": "2026-05-21T23:28:51Z",
+    "resolvedAt": "2026-05-21T23:28:51Z",
+    "updates": [
+      {
+        "body": "Message flows are healthy.",
+        "status": "resolved",
+        "updatedAt": "2026-05-21T23:28:51Z"
+      },
+      {
+        "body": "Our message queues for prediction and training status updates are hitting capacity limits which are causing connection failures for queue consumers. We are in the process of bringing additional capacity online.",
+        "status": "identified",
+        "updatedAt": "2026-05-21T21:38:24Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KS5HAZ81FTKBNB9KT3GFXHEC",
+    "name": "Constrained H100 capacity",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-05-21T15:09:20Z",
+    "updatedAt": "2026-05-21T22:05:26Z",
+    "resolvedAt": "2026-05-21T22:05:26Z",
+    "updates": [
+      {
+        "body": "H100 hardware contention has resolved. Thank you for your patience!",
+        "status": "resolved",
+        "updatedAt": "2026-05-21T22:05:26Z"
+      },
+      {
+        "body": "We are seeing heightened demand for H100 hardware which is causing severe queue delays.",
+        "status": "identified",
+        "updatedAt": "2026-05-21T15:09:20Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KRECT7JYBP8DEX4XC6ZXZ0GK",
+    "name": "Constrained capacity for H100 hardware",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-05-12T15:27:45Z",
+    "updatedAt": "2026-05-12T19:43:54Z",
+    "resolvedAt": "2026-05-12T19:43:54Z",
+    "updates": [
+      {
+        "body": "There is no more contention for H100 hardware. Thank you for your patience!",
+        "status": "resolved",
+        "updatedAt": "2026-05-12T19:43:54Z"
+      },
+      {
+        "body": "Demand for constrained H100 hardware is causing scaling delays. This impacts queue size and inference speed for any models running on H100s.",
+        "status": "identified",
+        "updatedAt": "2026-05-12T15:27:45Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01KPPFEB2PM2SV9VD1EMYS8X4K",
+    "name": "Docs Platform Degraded Performance",
+    "impact": "critical",
+    "status": "resolved",
+    "createdAt": "2026-04-20T22:16:13Z",
+    "updatedAt": "2026-04-20T22:28:56Z",
+    "resolvedAt": "2026-04-20T22:28:56Z",
+    "updates": [
+      {
+        "body": "Docs are back up!",
+        "status": "resolved",
+        "updatedAt": "2026-04-20T22:28:56Z"
+      },
+      {
+        "body": "We are currently experiencing an outage affecting our documentation site due to an issue with our third-party documentation provider, Fern.\n\nOur team is actively monitoring the situation while the provider investigates and works on a fix.",
+        "status": "investigating",
+        "updatedAt": "2026-04-20T22:16:13Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KPK2QQC7F7P90KMSDA0WA9FJ",
+    "name": "Degraded A100 hardware",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-04-19T14:36:25Z",
+    "updatedAt": "2026-04-19T15:02:51Z",
+    "resolvedAt": "2026-04-19T15:02:51Z",
+    "updates": [
+      {
+        "body": "All A100 capacity is back. Thanks for your patience!",
+        "status": "resolved",
+        "updatedAt": "2026-04-19T15:02:51Z"
+      },
+      {
+        "body": "All predictions and trainings targeting A100 hardware are experiencing degraded performance while control plane nodes restart.",
+        "status": "monitoring",
+        "updatedAt": "2026-04-19T14:36:25Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01KP45GATY2N5A4TF5Y5KPJ2QG",
+    "name": "Multiple Model Disruptions",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-04-13T19:36:12Z",
+    "updatedAt": "2026-04-13T21:00:44Z",
+    "resolvedAt": "2026-04-13T21:00:44Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2026-04-13T21:00:44Z"
+      },
+      {
+        "body": "👀 We are monitoring to make sure the incident has been fully resolved.",
+        "status": "monitoring",
+        "updatedAt": "2026-04-13T19:45:22Z"
+      },
+      {
+        "body": "We are currently investigating Multiple Model Disruptions.",
+        "status": "investigating",
+        "updatedAt": "2026-04-13T19:36:12Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01KNYJP2B8E5DPVFBRRNMSFJ54",
+    "name": "Scheduled DB Maintenance: Model authentication and API access momentarily affected",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-04-11T15:31:05Z",
+    "updatedAt": "2026-04-11T15:39:51Z",
+    "resolvedAt": "2026-04-11T15:39:51Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2026-04-11T15:39:51Z"
+      },
+      {
+        "body": "There is a scheduled DB maintenance in progress. All the API authentication when accessing models are affected momentarily. The auth and API  services is coming back online and should be fully up very soon.",
+        "status": "identified",
+        "updatedAt": "2026-04-11T15:31:05Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KNSJ0D5SCMVM1AC3WQN71DV4",
+    "name": "A100 capacity unavailable during storage maintenance",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-04-09T16:43:03Z",
+    "updatedAt": "2026-04-09T17:30:11Z",
+    "resolvedAt": "2026-04-09T17:30:11Z",
+    "updates": [
+      {
+        "body": "The maintenance is complete and all systems are reporting healthy. Thank you for your patience!",
+        "status": "resolved",
+        "updatedAt": "2026-04-09T17:30:11Z"
+      },
+      {
+        "body": "The persistent storage for all A100 hardware is under maintenance and is expected to be degraded until completion.",
+        "status": "investigating",
+        "updatedAt": "2026-04-09T16:43:03Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KMDPMA52ZRFQ6TNFJEN71JXK",
+    "name": "Downstream errors for Black Forest Labs models",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-03-23T15:57:15Z",
+    "updatedAt": "2026-03-24T01:34:24Z",
+    "resolvedAt": "2026-03-24T01:34:24Z",
+    "updates": [
+      {
+        "body": "Black Forest Labs has resolved the issue.",
+        "status": "resolved",
+        "updatedAt": "2026-03-24T01:34:24Z"
+      },
+      {
+        "body": "Some Black Forest Labs models are failing due to downstream errors from BFL. We are monitoring the situation and working on work arounds.\n\nBFL Status page: [https://status.bfl.ml/](https://status.bfl.ml/ \"https://status.bfl.ml/\")",
+        "status": "identified",
+        "updatedAt": "2026-03-23T15:57:15Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KKBX3XPMMAFPF1KPMD55FDFW",
+    "name": "Degraded performance on Flux Schnell",
+    "impact": "none",
+    "status": "resolved",
+    "createdAt": "2026-03-10T12:56:27Z",
+    "updatedAt": "2026-03-11T17:50:24Z",
+    "resolvedAt": "2026-03-10T18:17:48Z",
+    "updates": [
+      {
+        "body": "Flux Schnell requests are being served normally.",
+        "status": "resolved",
+        "updatedAt": "2026-03-10T18:17:48Z"
+      },
+      {
+        "body": "A GPU provider has an outage. Traffic is being rerouted and we are processing new Flux Schnell requests.",
+        "status": "monitoring",
+        "updatedAt": "2026-03-10T13:11:07Z"
+      },
+      {
+        "body": "We are investigating an outage that is only affecting Flux Schnell.",
+        "status": "investigating",
+        "updatedAt": "2026-03-10T12:56:27Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KHXFFNVFC5GWMENXRDDFJV36",
+    "name": "Model Predictions Stuck at \"Starting\"",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-02-20T12:13:08Z",
+    "updatedAt": "2026-03-11T17:50:24Z",
+    "resolvedAt": "2026-02-20T13:12:50Z",
+    "updates": [
+      {
+        "body": "Models are once again operational",
+        "status": "resolved",
+        "updatedAt": "2026-02-20T13:12:50Z"
+      },
+      {
+        "body": "We have identified the root cause and have made an update. We are continuing to monitor as we start to see things improve.",
+        "status": "monitoring",
+        "updatedAt": "2026-02-20T12:59:52Z"
+      },
+      {
+        "body": "We are currently investigating why a large number of models are not currently processing requests, with predictions stalled with a  \"starting\" status.",
+        "status": "investigating",
+        "updatedAt": "2026-02-20T12:13:08Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01KHAME29P9J8NX2WEQ71F1SQP",
+    "name": "Some chat models are unresponsive or timing out",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-02-13T04:34:04Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2026-02-13T05:51:37Z",
+    "updates": [
+      {
+        "body": "The issue has been resolved and all models are back to normal operation",
+        "status": "resolved",
+        "updatedAt": "2026-02-13T05:51:37Z"
+      },
+      {
+        "body": "We identified and resolved the connectivity problem affecting certain chat models. Affected models are starting to come back online.",
+        "status": "monitoring",
+        "updatedAt": "2026-02-13T05:35:55Z"
+      },
+      {
+        "body": "We are currently investigating an incident with chat models. ",
+        "status": "investigating",
+        "updatedAt": "2026-02-13T04:34:04Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KFWKH9891KD7N0Z3FZJ71G79",
+    "name": "Increased setup failures for T4 models",
+    "impact": "none",
+    "status": "resolved",
+    "createdAt": "2026-01-26T07:33:17Z",
+    "updatedAt": "2026-03-11T17:50:24Z",
+    "resolvedAt": "2026-01-26T15:16:57Z",
+    "updates": [
+      {
+        "body": "Model setup failures have dropped to normal levels since 10:40 UTC. Thank you for your patience!",
+        "status": "resolved",
+        "updatedAt": "2026-01-26T15:16:57Z"
+      },
+      {
+        "body": "We are seeing download issues from HuggingFace for a handful of T4 models, stopping new instances from starting. Requests for those models may be delayed as new capacity fails to come online. We will continue to monitor the situation.",
+        "status": "monitoring",
+        "updatedAt": "2026-01-26T10:10:03Z"
+      },
+      {
+        "body": "The problem seems to be isolated to models downloading weights from HuggingFace.",
+        "status": "investigating",
+        "updatedAt": "2026-01-26T08:53:30Z"
+      },
+      {
+        "body": "We are seeing increased setup failure rates on models using T4 GPUs.",
+        "status": "investigating",
+        "updatedAt": "2026-01-26T07:33:17Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KFESSJ2K93ZTF97QM1BH077D",
+    "name": "Predictions and training unavailable for multiple models",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-01-20T22:53:18Z",
+    "updatedAt": "2026-03-11T17:50:24Z",
+    "resolvedAt": "2026-01-21T00:22:53Z",
+    "updates": [
+      {
+        "body": "All infrastructure problems have been resolved and model predictions and training are available again for the relevant hardware types.",
+        "status": "resolved",
+        "updatedAt": "2026-01-21T00:22:53Z"
+      },
+      {
+        "body": "We are seeing indications that multiple models are not receiving prediction or training requests correctly.",
+        "status": "investigating",
+        "updatedAt": "2026-01-20T22:53:18Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KFEK731W8VHXNT0Y6DDGH1SW",
+    "name": "Flux Schnell unavailable",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2026-01-20T20:58:21Z",
+    "updatedAt": "2026-03-11T17:50:24Z",
+    "resolvedAt": "2026-01-21T00:07:21Z",
+    "updates": [
+      {
+        "body": "The `black-forest-labs/flux-schnell` model is fully operational now. Thank you for your patience!",
+        "status": "resolved",
+        "updatedAt": "2026-01-21T00:07:21Z"
+      },
+      {
+        "body": "The infrastructure failure preventing predictions from getting scheduled has been resolved for the past hour. We are monitoring performance and ensuring all adjacent systems are working well.",
+        "status": "monitoring",
+        "updatedAt": "2026-01-20T21:39:03Z"
+      },
+      {
+        "body": "The black-forest-labs/flux-schnell model is currently unavailable. We are actively investigating.",
+        "status": "investigating",
+        "updatedAt": "2026-01-20T20:58:21Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KF09F8PY0Y7BGZ055S3ZW0WE",
+    "name": "Prediction Errors",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2026-01-15T07:38:41Z",
+    "updatedAt": "2026-03-11T17:50:24Z",
+    "resolvedAt": "2026-01-15T10:34:14Z",
+    "updates": [
+      {
+        "body": "Incident is resolved.",
+        "status": "resolved",
+        "updatedAt": "2026-01-15T10:34:14Z"
+      },
+      {
+        "body": "All models have returned to normal processing timeframes. Thank you for your patience.",
+        "status": "investigating",
+        "updatedAt": "2026-01-15T10:33:07Z"
+      },
+      {
+        "body": "We have shifted traffic for the Flux Schnell model to a region with additional capacity. While we work through the backlog of requests, new requests should begin to be served within a normal timeframe.\n\nThis continues to impact only the Flux Schnell official model.",
+        "status": "investigating",
+        "updatedAt": "2026-01-15T09:32:58Z"
+      },
+      {
+        "body": "We have identified and remediated a data store related to queues that was wedged, preventing traffic from reaching it within one of our regions. Most inference and API usage as returned to normal with the exception of the Flux Schnell model.\n\nWe are working on restoring service to the flux schnell model. The impact is large delays on predictions and elevated errors when submitting preditions.",
+        "status": "investigating",
+        "updatedAt": "2026-01-15T08:34:02Z"
+      },
+      {
+        "body": "We are aware of elevated errors for predictions being sent to one of our regions. This is impacting an subset of models targeting H100 and L40S Hardware types.\n\nWe are investigating and will provide an update as soon as information is available.",
+        "status": "investigating",
+        "updatedAt": "2026-01-15T07:38:41Z"
+      }
+    ]
+  },
+  {
+    "providerId": "replicate",
+    "providerName": "Replicate",
+    "id": "01KCSDPNTXMP20260BEAFS86WQ",
+    "name": "High demand for H100 hardware type",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-12-18T19:06:34Z",
+    "updatedAt": "2026-03-11T17:50:24Z",
+    "resolvedAt": "2025-12-20T05:10:54Z",
+    "updates": [
+      {
+        "body": "We are all clear now. Thank you for your patience!",
+        "status": "resolved",
+        "updatedAt": "2025-12-20T05:10:54Z"
+      },
+      {
+        "body": "We are seeing high demand for the H100 hardware type, with increased delays for scale-out and cold boot events.",
+        "status": "monitoring",
+        "updatedAt": "2025-12-18T19:06:34Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01K7WMKZTGGPADA69MEAE9P4TY",
+    "name": "Chat models return 503 service error when /v1/chat requests omit message and chat_history while providing tool_results",
+    "impact": "none",
+    "status": "resolved",
+    "createdAt": "2025-10-18T21:46:40Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-10-18T22:23:24Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-10-18T22:23:24Z"
+      },
+      {
+        "body": "🛠️ We have identified the root cause of the incident, and are working diligently to fix.",
+        "status": "identified",
+        "updatedAt": "2025-10-18T21:46:40Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01K6G7VBZZR86YQT3VENMPQCGW",
+    "name": "logprobs param degeraded for `command-a-03-2025` and `command-a-reasoning-08-2025`",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-10-01T15:56:55Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-10-01T19:46:40Z",
+    "updates": [
+      {
+        "body": "`logprobs` feature has been correctly marked as unavailable for the specified models.",
+        "status": "resolved",
+        "updatedAt": "2025-10-01T19:46:40Z"
+      },
+      {
+        "body": "We have identified that the `logprobs` parameter is not working as expected for the following models:\n\n• `command-a-03-2025`\n\n• `command-a-reasoning-08-2025`\n\n\nThe team is investigating the incident.",
+        "status": "investigating",
+        "updatedAt": "2025-10-01T15:56:55Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01K234HMJ9JJ3XVJK8NY803T60",
+    "name": "Command-a-vision-07-2025 degraded performance",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-08-07T20:46:16Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-08-07T20:56:17Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-08-07T20:56:17Z"
+      },
+      {
+        "body": "🛠️ We have identified the root cause of the incident, and are working diligently to fix.",
+        "status": "identified",
+        "updatedAt": "2025-08-07T20:46:16Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01K114PX9SXRAJ12F2GVQV8JN6",
+    "name": "Model serving infrastructure outage",
+    "impact": "critical",
+    "status": "resolved",
+    "createdAt": "2025-07-25T15:54:58Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-07-25T19:52:17Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-07-25T19:52:17Z"
+      },
+      {
+        "body": "👀 We are monitoring to make sure the incident has been fully resolved.",
+        "status": "monitoring",
+        "updatedAt": "2025-07-25T19:12:46Z"
+      },
+      {
+        "body": "🛠️ We have identified the root cause of the incident, and are working diligently to fix.",
+        "status": "identified",
+        "updatedAt": "2025-07-25T18:25:39Z"
+      },
+      {
+        "body": "🔎 We are currently investigating this live incident.",
+        "status": "investigating",
+        "updatedAt": "2025-07-25T16:33:57Z"
+      },
+      {
+        "body": "Command models are down due to a model serving infrastructure outage",
+        "status": "investigating",
+        "updatedAt": "2025-07-25T15:54:58Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01JXJRAWFF0K09G2DBRQ4CTXJJ",
+    "name": "GCP Outage",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-06-12T19:02:13Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-06-12T22:44:49Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-06-12T22:44:49Z"
+      },
+      {
+        "body": "We are currently experiencing an outage with Google Cloud Platform (GCP), which may impact some of our services. Our team is actively monitoring the situation.",
+        "status": "monitoring",
+        "updatedAt": "2025-06-12T19:02:13Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01JVSW87BXBQ3ZZ9DZDPHRVPP6",
+    "name": "Degraded service affecting embed-v4.0",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-05-21T16:53:58Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-05-21T19:15:54Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-05-21T19:15:54Z"
+      },
+      {
+        "body": "🔎 We are currently investigating this live incident.",
+        "status": "investigating",
+        "updatedAt": "2025-05-21T16:53:58Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01JTR4K9QS3TV3ZDJ7JS98P9WX",
+    "name": "Degraded service affecting embedding models",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-05-08T14:25:39Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-05-13T15:01:35Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-05-13T15:01:35Z"
+      },
+      {
+        "body": "👀 We are monitoring to make sure the incident has been fully resolved.",
+        "status": "monitoring",
+        "updatedAt": "2025-05-08T17:14:42Z"
+      },
+      {
+        "body": "🔎 We are currently investigating this live incident.",
+        "status": "investigating",
+        "updatedAt": "2025-05-08T14:25:39Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01JQYB69N8B5RE3XJ999KXCRJY",
+    "name": "Degraded Performance - Increased Latency - Command-a-03-2025/command-r-plus-08-2024",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-04-03T17:29:14Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-04-04T20:58:27Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-04-04T20:58:38Z"
+      },
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-04-04T20:58:27Z"
+      },
+      {
+        "body": "👀 We are monitoring to make sure the incident has been fully resolved.",
+        "status": "monitoring",
+        "updatedAt": "2025-04-03T21:11:18Z"
+      },
+      {
+        "body": "🛠️ We have identified the root cause of the incident, and are working diligently to fix.",
+        "status": "identified",
+        "updatedAt": "2025-04-03T17:34:16Z"
+      },
+      {
+        "body": "🔎 We are currently investigating this live incident.",
+        "status": "investigating",
+        "updatedAt": "2025-04-03T17:29:14Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01JQW9FQPDCTAZHVX67SG0RAE9",
+    "name": "Degraded Performance: command-a-03-2025 - Increased Latency",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-04-02T22:20:57Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-04-03T01:49:04Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-04-03T01:49:04Z"
+      },
+      {
+        "body": "👀 We are monitoring to make sure the incident has been fully resolved.",
+        "status": "monitoring",
+        "updatedAt": "2025-04-02T22:20:57Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01JQHMK5GCC5HV5C0MB531WFKX",
+    "name": "High latency",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-03-29T19:03:25Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-03-29T19:14:06Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-03-29T19:14:06Z"
+      },
+      {
+        "body": "🔎 We are currently investigating this live incident.",
+        "status": "investigating",
+        "updatedAt": "2025-03-29T19:03:25Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01JQF7QQWHN61H3BTK3G0J29BG",
+    "name": "Increased Latency",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-03-28T20:40:14Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-03-28T23:58:59Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-03-28T23:58:59Z"
+      },
+      {
+        "body": "🔎 We are currently investigating this live incident.",
+        "status": "investigating",
+        "updatedAt": "2025-03-28T20:40:15Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01JQF312ZPCACX3BGXNMG53KAF",
+    "name": "Increased Latency",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-03-28T19:17:58Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-03-28T19:38:38Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-03-28T19:38:38Z"
+      },
+      {
+        "body": "🔎 We are currently investigating this live incident.",
+        "status": "investigating",
+        "updatedAt": "2025-03-28T19:17:58Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01JQCBNG40E8F7DJJ3FXH32RQR",
+    "name": "Elevated Latency",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-03-27T17:51:12Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-03-27T18:02:51Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-03-27T18:02:51Z"
+      },
+      {
+        "body": "🔎 We are currently investigating this live incident.",
+        "status": "investigating",
+        "updatedAt": "2025-03-27T17:51:12Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01JQ4PWH6B553KSDF3E0CPMJWF",
+    "name": "CommandR / CommandR plus: Elevated Error Rate",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-03-24T18:33:21Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-03-24T20:26:57Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-03-24T20:26:57Z"
+      },
+      {
+        "body": "👀 We are monitoring to make sure the incident has been fully resolved.",
+        "status": "monitoring",
+        "updatedAt": "2025-03-24T18:33:21Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01JPTBDM80HG9P0FSS2XH2ST6J",
+    "name": "Rerank Endpoint: Degraded Service",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-03-20T18:00:34Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-03-20T19:29:03Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-03-20T19:29:03Z"
+      },
+      {
+        "body": "🔎 We are currently investigating this live incident.",
+        "status": "investigating",
+        "updatedAt": "2025-03-20T18:00:34Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01JPNZBEAZ6XHSRDH4PNQEHJ96",
+    "name": "Chat Endpoint: Encountering Increased Error rate",
+    "impact": "minor",
+    "status": "resolved",
+    "createdAt": "2025-03-19T01:12:42Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-03-19T11:46:24Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-03-19T11:46:24Z"
+      },
+      {
+        "body": "👀 We are monitoring to make sure the incident has been fully resolved.",
+        "status": "monitoring",
+        "updatedAt": "2025-03-19T01:35:52Z"
+      },
+      {
+        "body": "🔎 We are currently investigating this live incident.",
+        "status": "investigating",
+        "updatedAt": "2025-03-19T01:12:42Z"
+      }
+    ]
+  },
+  {
+    "providerId": "cohere",
+    "providerName": "Cohere",
+    "id": "01JN7TNYP36Q0HHE3YN61XTSJQ",
+    "name": "Team has implementing a workaround to restore access to impacted accounts",
+    "impact": "major",
+    "status": "resolved",
+    "createdAt": "2025-03-01T03:06:00Z",
+    "updatedAt": "2026-03-12T20:31:38Z",
+    "resolvedAt": "2025-03-01T05:51:59Z",
+    "updates": [
+      {
+        "body": "🎉 The issue has been resolved and we are back to normal.",
+        "status": "resolved",
+        "updatedAt": "2025-03-01T05:51:59Z"
+      },
+      {
+        "body": "🛠️ We have identified the root cause of the incident, and are working diligently to fix.",
+        "status": "identified",
+        "updatedAt": "2025-03-01T04:52:40Z"
+      },
+      {
+        "body": "🛠️ We have identified the root cause of the incident, and are working diligently to fix.",
+        "status": "identified",
+        "updatedAt": "2025-03-01T04:12:20Z"
+      },
+      {
+        "body": "🔎 We are currently investigating this live incident.",
+        "status": "investigating",
+        "updatedAt": "2025-03-01T03:06:00Z"
+      }
+    ]
+  }
+]

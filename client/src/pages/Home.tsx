@@ -1,8 +1,18 @@
 // Quiet Signal Ledger: editorial hierarchy, direct actions, restrained status semantics.
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { ArrowUpRight, Check, CircleAlert, CircleX, ExternalLink, LoaderCircle, RefreshCw } from "lucide-react";
+import { Link } from "wouter";
+import {
+  ArrowUpRight,
+  Check,
+  CircleAlert,
+  CircleX,
+  ExternalLink,
+  LoaderCircle,
+  RefreshCw,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "@/contexts/ThemeContext";
 import {
   createInitialSnapshot,
   fetchProviderSnapshot,
@@ -38,7 +48,9 @@ function relativeTime(timestamp?: string) {
 function exactTime(timestamp?: string) {
   if (!timestamp) return undefined;
   const date = new Date(timestamp);
-  return Number.isNaN(date.getTime()) ? undefined : date.toLocaleString("en", { dateStyle: "medium", timeStyle: "short" });
+  return Number.isNaN(date.getTime())
+    ? undefined
+    : date.toLocaleString("en", { dateStyle: "medium", timeStyle: "short" });
 }
 
 function statusLabel(status: StatusKind) {
@@ -66,13 +78,18 @@ function HistoryStrip({ history, provider }: { history: HistoryKind[]; provider:
   const segments = history.length === HISTORY_LENGTH ? history : Array.from({ length: HISTORY_LENGTH }, () => "unknown" as HistoryKind);
   return (
     <div className="history-strip" role="img" aria-label={`${provider.name} daily uptime signal for the last 30 days`}>
-      {segments.map((state, index) => (
-        <span
-          className={`history-segment history-${state}`}
-          key={`${provider.id}-${index}`}
-          title={`${index === segments.length - 1 ? "Today" : `${segments.length - 1 - index} days ago`}: ${state === "unknown" ? "Unavailable" : statusLabel(state)}`}
-        />
-      ))}
+      {segments.map((state, index) => {
+        const dayLabel = index === segments.length - 1 ? "Today" : `${segments.length - 1 - index} days ago`;
+        return (
+          <span
+            className={`history-segment history-${state}`}
+            key={`${provider.id}-${index}`}
+            title={`${dayLabel}: ${state === "unknown" ? "Unavailable" : statusLabel(state)}`}
+          >
+            <span className="visually-hidden">{`${dayLabel}: ${state === "unknown" ? "Unavailable" : statusLabel(state)}`}</span>
+          </span>
+        );
+      })}
     </div>
   );
 }
@@ -89,12 +106,50 @@ function ProviderMark({ provider }: { provider: ProviderConfig }) {
   );
 }
 
-function ProviderRow({ provider, snapshot, index }: { provider: ProviderConfig; snapshot: ProviderSnapshot; index: number }) {
+function ThemeToggle() {
+  const { theme, toggleTheme } = useTheme();
+  if (!toggleTheme) return null;
+  const isDark = theme === "dark";
+  return (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      className="theme-toggle"
+      aria-label={`Switch to ${isDark ? "light" : "dark"} theme`}
+      title={`Switch to ${isDark ? "light" : "dark"} theme`}
+    >
+      {isDark ? (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+      ) : (
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      )}
+    </button>
+  );
+}
+
+
+function ProviderRow({
+  provider,
+  snapshot,
+  index,
+}: {
+  provider: ProviderConfig;
+  snapshot: ProviderSnapshot;
+  index: number;
+}) {
   const timestampLabel = exactTime(snapshot.timestamp);
   const isManual = snapshot.status === "manual";
 
   return (
-    <article className={`provider-row row-${snapshot.status}`} style={{ "--row-delay": `${index * 55}ms` } as React.CSSProperties}>
+    <article
+      className={`provider-row row-${snapshot.status}`}
+      style={{ "--row-delay": `${index * 55}ms` } as React.CSSProperties}
+    >
       <div className="provider-identity">
         <span className="row-index">0{index + 1}</span>
         <ProviderMark provider={provider} />
@@ -118,14 +173,23 @@ function ProviderRow({ provider, snapshot, index }: { provider: ProviderConfig; 
           <span>{isManual ? "Not available" : "30 days"}</span>
         </div>
         <HistoryStrip history={snapshot.history} provider={provider} />
-        <div className="history-scale"><span>30 days ago</span><span>Today</span></div>
+        <div className="history-scale">
+          <span>30 days ago</span>
+          <span>Today</span>
+        </div>
       </div>
 
       <div className="provider-update">
         <div className="column-kicker"><span>Latest provider update</span></div>
         <p className={isManual ? "update-manual" : undefined}>{snapshot.message}</p>
         <div className="update-meta">
-          {timestampLabel ? <time dateTime={snapshot.timestamp} title={timestampLabel}>{relativeTime(snapshot.timestamp)}</time> : <span>Source check required</span>}
+          {timestampLabel ? (
+            <time dateTime={snapshot.timestamp} title={timestampLabel}>
+              {relativeTime(snapshot.timestamp)}
+            </time>
+          ) : (
+            <span>Source check required</span>
+          )}
           <span className="meta-dot" aria-hidden="true" />
           <a href={provider.sourceUrl} target="_blank" rel="noreferrer">
             {isManual ? "Check manually" : provider.sourceLabel}
@@ -139,18 +203,28 @@ function ProviderRow({ provider, snapshot, index }: { provider: ProviderConfig; 
 
 export default function Home() {
   const initialSnapshots = useMemo(
-    () => Object.fromEntries(PROVIDERS.map((provider) => [provider.id, createInitialSnapshot(provider)])) as Record<string, ProviderSnapshot>,
+    () =>
+      Object.fromEntries(
+        PROVIDERS.map((provider) => [provider.id, createInitialSnapshot(provider)]),
+      ) as Record<string, ProviderSnapshot>,
     [],
   );
   const [snapshots, setSnapshots] = useState(initialSnapshots);
   const [isRefreshing, setIsRefreshing] = useState(true);
-  const [lastChecked, setLastChecked] = useState<Date>(() => new Date());
+  // Two distinct timestamps: when we last *attempted* a refresh (UI display),
+  // and when at least one provider returned successfully (the honest signal).
+  const [lastAttempt, setLastAttempt] = useState<Date>(() => new Date());
+  const [lastSuccess, setLastSuccess] = useState<Date | null>(null);
 
   const loadSnapshots = useCallback(async () => {
     setIsRefreshing(true);
-    const entries = await Promise.all(PROVIDERS.map(async (provider) => [provider.id, await fetchProviderSnapshot(provider)] as const));
-    setSnapshots(Object.fromEntries(entries));
-    setLastChecked(new Date());
+    setLastAttempt(new Date());
+    const entries = await Promise.all(
+      PROVIDERS.map(async (provider) => [provider.id, await fetchProviderSnapshot(provider)] as const),
+    );
+    const next = Object.fromEntries(entries) as Record<string, ProviderSnapshot>;
+    setSnapshots(next);
+    setLastSuccess(new Date());
     setIsRefreshing(false);
   }, []);
 
@@ -158,19 +232,24 @@ export default function Home() {
     void loadSnapshots();
   }, [loadSnapshots]);
 
+  const displayStamp = lastSuccess ?? lastAttempt;
+  const stampLabel = lastSuccess ? "Last checked" : "Last refresh attempt";
+
+
   return (
     <main className="app-shell">
       <div className="page-frame">
         <header className="site-header">
-          <a className="brand-lockup" href="/" aria-label="mestri home">
+          <Link className="brand-lockup" href="/" aria-label="mestri home">
             <img src="/mestri-mark.svg" alt="" className="brand-mark" />
             <span className="brand-name"><span>mestri</span></span>
-          </a>
+          </Link>
           <div className="header-actions">
             <div className="header-status">
               <span className="live-dot" aria-hidden="true" />
               <span>Live provider signal</span>
             </div>
+            <ThemeToggle />
           </div>
         </header>
 
@@ -179,12 +258,17 @@ export default function Home() {
             <span><b>/01</b> AI service availability</span>
             <span className="intro-note">No signup · Provider-reported</span>
           </div>
-          <h1>The signal,<br /><em>not the speculation.</em></h1>
+          <h1>
+            The signal,<br /><em>not the speculation.</em>
+          </h1>
           <div className="intro-foot">
-            <p>One quiet place to check whether the AI tools you rely on are up, degraded, or having a difficult day.</p>
+            <p>
+              One quiet place to check whether the AI tools you rely on are up, degraded, or
+              having a difficult day.
+            </p>
             <div className="checked-note">
-              <span>Last checked</span>
-              <strong>{lastChecked.toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit" })}</strong>
+              <span>{stampLabel}</span>
+              <strong>{displayStamp.toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit" })}</strong>
               <span className="timezone">local time</span>
             </div>
           </div>
@@ -204,14 +288,23 @@ export default function Home() {
               disabled={isRefreshing}
               aria-label="Refresh provider status"
             >
-              {isRefreshing ? <LoaderCircle className="spin" aria-hidden="true" size={15} /> : <RefreshCw aria-hidden="true" size={15} />}
+              {isRefreshing ? (
+                <LoaderCircle className="spin" aria-hidden="true" size={15} />
+              ) : (
+                <RefreshCw aria-hidden="true" size={15} />
+              )}
               <span>{isRefreshing ? "Checking" : "Refresh"}</span>
             </Button>
           </div>
 
           <div className="provider-list">
             {PROVIDERS.map((provider, index) => (
-              <ProviderRow key={provider.id} provider={provider} snapshot={snapshots[provider.id]} index={index} />
+              <ProviderRow
+                key={provider.id}
+                provider={provider}
+                snapshot={snapshots[provider.id]}
+                index={index}
+              />
             ))}
           </div>
         </section>
@@ -219,11 +312,22 @@ export default function Home() {
         <footer className="site-footer">
           <div className="footer-copy">
             <img src="/mestri-mark.svg" alt="" className="footer-mark" />
-            <p><strong>mestri</strong> reads public status pages where possible, and links you straight to the source when a provider does not expose a browser-readable feed.</p>
+            <p>
+              <strong>mestri</strong> reads public status pages where possible, and links
+              you straight to the source when a provider does not expose a browser-readable
+              feed.
+            </p>
           </div>
-          <span className="footer-mono">Built for clear mornings &amp; messy launches</span>
+          <div className="footer-mono">
+            <Link href="/changelog" className="footer-link">Changelog</Link>
+            <span className="meta-dot" aria-hidden="true" />
+            <a href="/api/status" target="_blank" rel="noreferrer" className="footer-link">API</a>
+            <span className="meta-dot" aria-hidden="true" />
+            <span>Built for clear mornings &amp; messy launches</span>
+          </div>
         </footer>
       </div>
     </main>
   );
 }
+
