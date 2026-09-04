@@ -267,5 +267,26 @@ The Cloudflare platform guarantees singleton cron executions for a single script
 - Total snapshot timeline size (`SELECT COUNT(*) FROM status_snapshots`)
 - Webhook attempted and failed counts per cycle.
 
+---
+
+## 13. Content Surfaces (Phase 8)
+
+Phase 8 shifts public content generation (SEO & syndication) to the Cloudflare Worker, exposing the exact same endpoints safely over D1 instead of filesystem JSON.
+
+**Worker Content Routes:**
+1. `GET /api/feeds/all.xml` - Aggregated RSS 2.0 incident feed.
+2. `GET /api/feeds/:providerId.xml` - Filtered RSS 2.0 feed per provider.
+3. `GET /sitemap.xml` - XML sitemap mapping static boundaries (`/`, `/changelog`) and dynamic incident pages (`/i/:id`).
+4. `GET /robots.txt` - Plain text SEO directives pointing at the dynamic sitemap.
+
+**XML Safety & Escaping:**
+All string concats involving incident text or names use a native `escapeXml` implementation matching the original Express layer `&amp; / &lt; / &gt; / &quot; / &apos;`, neutralizing unescaped user-controlled text.
+
+**Dynamic Origin / Base URL:**
+Instead of hardcoding production constants prematurely, the Worker dynamically evaluates `BASE_URL` from environment bindings or defaults robustly to the `request.url` origin. This automatically allows local testing via `http://localhost:8787` while transparently matching production configurations like `https://mestri.dev`.
+
+**Express Coexistence:**
+The Express server `server/routes/feeds.ts` and `server/routes/sitemap.ts` remain completely untouched, serving cleanly in tandem with the Worker runtime.
+
 > [!WARNING]
-> Production deployment has **not** occurred yet. The Cron trigger is configured logically but remains local. The Express backend remains perfectly usable for active development.
+> Production deployment has **not** occurred yet. The Express backend remains perfectly usable for active development.

@@ -2,6 +2,7 @@ import type { D1Database, ExecutionContext, ScheduledController } from "@cloudfl
 import { getWorkerStatus } from "./workerStatus";
 import { getWorkerIncidents, getWorkerIncident, refreshWorkerArchive } from "./workerIncidents";
 import { getWorkerSubscriptions, createWorkerSubscription, deleteWorkerSubscription } from "./workerNotifications";
+import { handleFeedsAll, handleFeedsProvider, handleSitemap, handleRobots } from "./workerContent";
 import { runMonitoringCycle } from "./cron";
 
 export interface Env {
@@ -154,6 +155,23 @@ export default {
         });
       } catch (err: any) {
         return errorResponse(err);
+      }
+    }
+
+    // --- Phase 8: Content Surfaces ---
+    if (request.method === "GET") {
+      if (url.pathname === "/api/feeds/all.xml") {
+        return handleFeedsAll(request, env);
+      }
+      if (url.pathname.startsWith("/api/feeds/") && url.pathname.endsWith(".xml")) {
+        const providerIdExt = url.pathname.replace("/api/feeds/", "");
+        return handleFeedsProvider(request, env, providerIdExt);
+      }
+      if (url.pathname === "/sitemap.xml") {
+        return handleSitemap(request, env);
+      }
+      if (url.pathname === "/robots.txt") {
+        return handleRobots(request, env);
       }
     }
 
