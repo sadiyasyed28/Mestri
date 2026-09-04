@@ -133,3 +133,15 @@ Content-Type: application/json; charset=utf-8
                  ▼
 [ Phase 14: Documentation, Metrics & Architecture Handover ]
 ```
+
+---
+
+## 7. Database Schema (D1)
+
+The following schema is implemented for D1 (Phase 2):
+
+- **`providers`**: Static provider configuration (`id`, `name`, `service`, `source_url`, `feed_url`, `incidents_url`, `accent`, `monogram`, `manual_only`).
+- **`status_snapshots`**: Rolling cache of fetch results per provider (`id`, `provider_id`, `status`, `message`, `timestamp`, `history` JSON array, `created_at`).
+- **`incidents`**: Persistent incident archive (`id`, `provider_id`, `name`, `impact`, `status`, `created_at`, `updated_at`, `resolved_at`, `updates` JSON array).
+- **`subscriptions`**: Notification targets (`id`, `provider_id`, `channel`, `target`, `created_at`).
+- **`provider_state`**: Previous state records for transition detection and alerts (`provider_id`, `status`, `message`, `updated_at`).
