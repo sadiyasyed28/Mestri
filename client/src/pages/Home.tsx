@@ -163,7 +163,7 @@ export default function Home() {
       <div className="page-frame">
         <header className="site-header">
           <a className="brand-lockup" href="/" aria-label="mestri home">
-            <img src="/manus-storage/mestri-mark_e18832b9.png" alt="" className="brand-mark" />
+            <img src="/mestri-mark.svg" alt="" className="brand-mark" />
             <span className="brand-name"><span>mestri</span></span>
           </a>
           <div className="header-actions">
@@ -218,7 +218,7 @@ export default function Home() {
 
         <footer className="site-footer">
           <div className="footer-copy">
-            <img src="/manus-storage/mestri-mark_e18832b9.png" alt="" className="footer-mark" />
+            <img src="/mestri-mark.svg" alt="" className="footer-mark" />
             <p><strong>mestri</strong> reads public status pages where possible, and links you straight to the source when a provider does not expose a browser-readable feed.</p>
           </div>
           <span className="footer-mono">Built for clear mornings &amp; messy launches</span>

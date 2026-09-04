@@ -145,9 +145,9 @@
   .app-shell {
     min-height: 100vh;
     background-color: var(--paper);
-    background-image: url("/manus-storage/pulseboard-paper-grid_0ebdad62.png");
+    background-image: radial-gradient(color-mix(in srgb, var(--ink) 7%, transparent) 1px, transparent 1px);
     background-position: center top;
-    background-size: 920px auto;
+    background-size: 24px 24px;
   }
 
   .page-frame {
@@ -252,16 +252,13 @@
   .intro-block::after {
     position: absolute;
     z-index: -1;
-    right: -8%;
+    right: -4%;
     bottom: 3%;
     width: min(42vw, 480px);
     height: 270px;
     content: "";
-    background-image: url("/manus-storage/pulseboard-signal-field_5b76c8c4.png");
-    background-position: center;
-    background-size: cover;
-    opacity: 0.1;
-    mix-blend-mode: multiply;
+    background: radial-gradient(ellipse at 70% 50%, color-mix(in srgb, var(--accent) 14%, transparent) 0%, color-mix(in srgb, var(--ink) 3%, transparent) 45%, transparent 70%);
+    opacity: 0.8;
     pointer-events: none;
   }
 
