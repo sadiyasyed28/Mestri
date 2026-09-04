@@ -284,6 +284,23 @@ export function createDb(db: D1Database) {
           message = excluded.message,
           updated_at = CURRENT_TIMESTAMP
       `).bind(state.providerId, state.status, state.message ?? null).run();
+    },
+
+    async compareAndSetProviderState(state: Omit<DbProviderState, "updatedAt">, previousStatus: string | null): Promise<boolean> {
+      if (previousStatus === null) {
+        const result = await db.prepare(`
+          INSERT OR IGNORE INTO provider_state (provider_id, status, message)
+          VALUES (?, ?, ?)
+        `).bind(state.providerId, state.status, state.message ?? null).run();
+        return result.meta.changes > 0;
+      } else {
+        const result = await db.prepare(`
+          UPDATE provider_state 
+          SET status = ?, message = ?, updated_at = CURRENT_TIMESTAMP
+          WHERE provider_id = ? AND status = ?
+        `).bind(state.status, state.message ?? null, state.providerId, previousStatus).run();
+        return result.meta.changes > 0;
+      }
     }
   };
 }

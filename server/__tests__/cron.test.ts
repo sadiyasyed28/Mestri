@@ -37,11 +37,17 @@ function createMockDb(): D1Database {
               return null;
             }),
             run: vi.fn(async () => {
-              if (query.includes("INSERT OR REPLACE INTO provider_state")) {
+              if (query.includes("INSERT OR REPLACE INTO provider_state") || query.includes("INSERT INTO provider_state")) {
                 const id = args[0];
                 providerState[id] = { provider_id: id, status: args[1], message: args[2], updated_at: "now" };
               }
-              return { success: true };
+              if (query.includes("UPDATE provider_state")) {
+                return { meta: { changes: 1 }, success: true };
+              }
+              if (query.includes("INSERT OR IGNORE INTO provider_state")) {
+                return { meta: { changes: 1 }, success: true };
+              }
+              return { meta: { changes: 1 }, success: true };
             }),
             all: vi.fn(async () => {
               if (query.includes("FROM subscriptions")) {
@@ -57,6 +63,7 @@ function createMockDb(): D1Database {
           }
           return { results: [], success: true };
         }),
+        run: vi.fn(async () => ({ meta: { changes: 1 }, success: true })),
       };
       return stmt;
     }),
@@ -126,6 +133,49 @@ describe("Worker Cron Monitoring Engine", () => {
       oldStatus: "operational",
       newStatus: "degraded"
     }));
+  });
+
+  it("should prevent duplicate notifications if a concurrent execution updates state first", async () => {
+    (dbBinding as any).__setState("openai", "operational");
+    
+    // Simulate D1 returning changes = 0 indicating compareAndSet failed (race condition lost)
+    const originalPrepare = dbBinding.prepare;
+    dbBinding.prepare = vi.fn((query: string) => {
+      const stmt = originalPrepare(query) as any;
+      if (query.includes("UPDATE provider_state")) {
+        const originalRun = stmt.bind().run;
+        stmt.bind = vi.fn((...args: any[]) => {
+          return {
+            run: vi.fn(async () => {
+              // Override meta.changes to 0 to simulate lost race
+              return { meta: { changes: 0 }, success: true };
+            }),
+            first: stmt.bind(...args).first,
+            all: stmt.bind(...args).all
+          };
+        });
+      }
+      return stmt;
+    });
+
+    (fetcher.fetchProviderSnapshotRemote as any).mockImplementation((provider: any) => {
+      if (provider.id === "openai") {
+        return Promise.resolve({
+          status: "degraded",
+          message: "API latency",
+          timestamp: "2024-01-01T00:00:00Z",
+          history: []
+        });
+      }
+      return Promise.resolve({ status: "operational", message: "", timestamp: "2024-01-01T00:00:00Z", history: [] });
+    });
+
+    const result = await runMonitoringCycle(dbBinding);
+    expect(result.transitions).toBe(0); // Failed to transition
+    expect(result.notificationsAttempted).toBe(0); // Notification aborted safely
+    expect(notif.deliverWebhook).not.toHaveBeenCalled();
+    
+    dbBinding.prepare = originalPrepare; // Restore mock
   });
 
   it("should isolate provider failure and continue", async () => {

@@ -52,14 +52,20 @@ export async function runMonitoringCycle(dbBinding: D1Database): Promise<{
         shouldNotify = true;
       }
       
-      // Upsert current state
+      // Upsert current state atomically to prevent race conditions
       if (isTransition) {
-        await db.upsertProviderState({
+        const wonRace = await db.compareAndSetProviderState({
           providerId: provider.id,
           status: snapshot.status,
           message: snapshot.message
-        });
-        if (previous) transitions++;
+        }, previous ? previous.status : null);
+        
+        if (!wonRace) {
+          // Another execution already updated this state, abort notification.
+          shouldNotify = false;
+        } else if (previous) {
+          transitions++;
+        }
       }
       
       // Persist snapshot (always write a snapshot for successful fetches to track latency/history)
