@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 
   <head>
     <meta charset="UTF-8" />
@@ -12,17 +12,9 @@
     <meta property="og:description" content="The signal, not the speculation. A quiet status tracker for the AI tools you rely on." />
     <meta property="og:type" content="website" />
     <script>
-      // Synchronous theme bootstrap — eliminates FOUC by setting <html> class
-      // *before* React mounts, based on localStorage or the default "light".
-      (function () {
-        try {
-          var stored = localStorage.getItem("theme");
-          var theme = stored === "dark" ? "dark" : "light";
-          if (theme === "dark") document.documentElement.classList.add("dark");
-        } catch (_) {
-          /* localStorage unavailable; fall through to default */
-        }
-      })();
+      // Enforce dark theme
+      document.documentElement.classList.add("dark");
+      try { localStorage.setItem("theme", "dark"); } catch (_) {}
     </script>
   </head>
 

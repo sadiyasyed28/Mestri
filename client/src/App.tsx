@@ -21,11 +21,11 @@ function Router() {
   );
 }
 
-// Light-first per the design system; users can toggle to dark via the header button.
+// Pure dark theme
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="light" switchable>
+      <ThemeProvider>
         <TooltipProvider>
           <Toaster />
           <Router />
