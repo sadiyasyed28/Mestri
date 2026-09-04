@@ -37,9 +37,9 @@
 1. Push this repository to GitHub.
 2. Go to your [Vercel Dashboard](https://vercel.com/new).
 3. Click **"Import Project"** and select `Mestri`.
-4. Vercel automatically detects the configuration from [`vercel.json`](./vercel.json):
+4. Vercel automatically detects the configuration:
    - **Framework Preset**: `Vite`
-   - **Output Directory**: `dist/public`
+   - **Output Directory**: `dist`
    - **Build Command**: `pnpm run build`
 5. Click **Deploy**.
 
