@@ -188,3 +188,29 @@ With D1 active for status persistence, the following operational metrics can now
 - Total number of monitored providers (`SELECT COUNT(*) FROM providers`)
 - Total number of successful/failed status checks over time (`SELECT COUNT(*) FROM status_snapshots`)
 - Availability tracking (by joining `provider_state` and `status_snapshots`)
+
+---
+
+## 10. Incident Archive Migration (Phase 5)
+
+The Cloudflare Worker now natively handles the incident archive layer, serving historical incident data from the D1 database while preserving full API and JSON contract compatibility.
+
+**Persistence Strategy:**
+- **`incidents` table**: The D1 database is the new persistent source of truth for the Cloudflare Worker runtime. Incident persistence uses stable unique identifiers (the provider's upstream incident ID) to ensure all writes are strictly idempotent.
+- **Deduplication**: When `GET /api/archive/refresh` triggers an upstream fetch, `ON CONFLICT(id) DO UPDATE` ensures existing incidents simply update their timelines and statuses instead of duplicating.
+- **Nested Updates**: Nested JSON arrays representing incident updates (timelines) are stored in D1 as stringified JSON and transparently parsed back into the exact structural shape the frontend expects.
+
+**Worker Endpoints Implemented:**
+- `GET /api/incidents`: Retrieves the global incident log (optionally filtered by `?provider=...`), appending the expected `providerName` field dynamically via a relational lookup without requiring schema denormalization.
+- `GET /api/incidents/:id`: Retrieves a specific incident by its unique ID.
+- `GET /api/archive/refresh`: Manually triggers the upstream provider API incident fetch sequence and syncs the results into D1.
+
+**Express/Worker Boundary:**
+Just like Phase 4, `data/incidents.json` remains completely untouched. The Express backend still reads/writes exclusively to the filesystem, while the Cloudflare Worker exclusively accesses D1.
+
+**Derivable Real Metrics:**
+With D1 active for incident persistence, the following operational metrics can now be accurately derived directly via SQL:
+- Total historical incidents tracked (`SELECT COUNT(*) FROM incidents`)
+- Incident severity distribution (`SELECT impact, COUNT(*) FROM incidents GROUP BY impact`)
+- Currently active/unresolved incidents (`SELECT COUNT(*) FROM incidents WHERE resolved_at IS NULL`)
+- Incidents by provider (`SELECT provider_id, COUNT(*) FROM incidents GROUP BY provider_id`)
