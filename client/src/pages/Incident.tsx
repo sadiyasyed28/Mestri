@@ -41,6 +41,12 @@ export default function Incident({ params }: { params: { id: string } }) {
       .finally(() => setLoading(false));
   }, [params.id]);
 
+  const descriptionText = incident
+    ? incident.resolvedAt
+      ? `${incident.providerName} reported this incident ${fmt(incident.createdAt)} and resolved it ${fmt(incident.resolvedAt)}.`
+      : `${incident.providerName} reported this incident ${fmt(incident.createdAt)} and is still working on it.`
+    : "Fetching the latest record from the mestri archive.";
+
   return (
     <main className="app-shell">
       <div className="page-frame">
@@ -63,13 +69,7 @@ export default function Incident({ params }: { params: { id: string } }) {
             {incident?.name ?? "Loading incident…"}
           </h1>
           <div className="intro-foot">
-            <p>
-              {incident
-                ? `${incident.providerName} reported this incident ${fmt(incident.createdAt)}${
-                    incident.resolvedAt ? ` and resolved it ${fmt(incident.resolvedAt)}` : " and is still working on it"
-                  }.`
-                : "Fetching the latest record from the mestri archive."}
-            </p>
+            <p>{descriptionText}</p>
           </div>
         </section>
 
@@ -80,7 +80,7 @@ export default function Incident({ params }: { params: { id: string } }) {
               <h2 id="incident-heading">Timeline</h2>
             </div>
             <Link href="/" className="refresh-button footer-link" aria-label="Back to status">
-              ← Back
+              &larr; Back
             </Link>
           </div>
 

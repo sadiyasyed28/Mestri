@@ -31,10 +31,10 @@ function relativeTime(timestamp?: string) {
 
   const seconds = Math.round((date.getTime() - Date.now()) / 1000);
   const ranges: Array<[Intl.RelativeTimeFormatUnit, number]> = [
-    ["year", 31_536_000],
-    ["month", 2_592_000],
-    ["day", 86_400],
-    ["hour", 3_600],
+    ["year", 31536000],
+    ["month", 2592000],
+    ["day", 86400],
+    ["hour", 3600],
     ["minute", 60],
   ];
   const formatter = new Intl.RelativeTimeFormat("en", { numeric: "auto" });

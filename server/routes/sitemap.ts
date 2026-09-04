@@ -19,15 +19,15 @@ export async function buildSitemap(): Promise<string> {
     const raw = await fs.readFile(INCIDENTS_FILE, "utf-8");
     const parsed = JSON.parse(raw) as StoredIncident[];
     if (Array.isArray(parsed)) incidents = parsed;
-  } catch {
+  } catch (_err) {
     incidents = [];
   }
 
   const base = "https://mestri.dev";
   const staticUrls = ["/", "/changelog"]
     .map(
-      (path) =>
-        `<url><loc>${base}${path}</loc><changefreq>daily</changefreq><priority>${path === "/" ? "1.0" : "0.5"}</priority></url>`,
+      (urlPath) =>
+        `<url><loc>${base}${urlPath}</loc><changefreq>daily</changefreq><priority>${urlPath === "/" ? "1.0" : "0.5"}</priority></url>`,
     )
     .join("\n");
 
@@ -35,13 +35,17 @@ export async function buildSitemap(): Promise<string> {
     .slice(0, 5000)
     .map(
       (i) =>
-        `<url><loc>${base}/i/${i.id}</loc><lastmod>${new Date(i.updatedAt).toISOString()}</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>`,
+        `<url><loc>${base}/i/${encodeURIComponent(i.id)}</loc><lastmod>${new Date(i.updatedAt).toISOString()}</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>`,
     )
     .join("\n");
 
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${staticUrls}
-${incidentUrls}
-</urlset>`;
+  const lines = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    staticUrls,
+    incidentUrls,
+    "</urlset>",
+  ];
+
+  return lines.filter(Boolean).join("\n");
 }

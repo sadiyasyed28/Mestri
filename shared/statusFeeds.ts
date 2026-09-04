@@ -61,7 +61,7 @@ export function deriveIncidentsUrl(summaryUrl: string | undefined): string | und
     const url = new URL(summaryUrl);
     url.pathname = url.pathname.replace(/summary\.json$/, "incidents.json");
     return url.toString();
-  } catch {
+  } catch (_err) {
     return undefined;
   }
 }
@@ -217,7 +217,7 @@ export function createIncidentHistory(incidents: StatusPageIncident[]): HistoryK
 
     const state = incidentStatus(incident);
     for (let offset = 0; offset < 30; offset += 1) {
-      const day = today - offset * 86_400_000;
+      const day = today - offset * 86400000;
       if (day >= startOfDay(new Date(created)) && day <= startOfDay(new Date(ended))) {
         days[29 - offset] = state;
       }

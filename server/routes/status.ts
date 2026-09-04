@@ -22,8 +22,8 @@ import {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const FETCH_TIMEOUT_MS = 7_000;
-const CACHE_TTL_MS = 60_000;
+const FETCH_TIMEOUT_MS = 7000;
+const CACHE_TTL_MS = 60000;
 const DATA_DIR = path.resolve(__dirname, "..", "data");
 const INCIDENTS_FILE = path.join(DATA_DIR, "incidents.json");
 
@@ -55,13 +55,13 @@ async function fetchProviderSnapshotRemote(provider: ProviderConfig): Promise<Pr
           controller.signal,
         );
         incidents = Array.isArray(payload) ? payload : payload.incidents ?? [];
-      } catch {
+      } catch (_err) {
         incidents = [];
       }
     }
     const fetched: FetchedSnapshot = deriveSnapshot(provider, summary, incidents);
     return buildSnapshot(provider, fetched);
-  } catch {
+  } catch (_err) {
     return createManualSnapshot(provider, "Upstream feed unreachable.");
   } finally {
     clearTimeout(timeout);
@@ -101,7 +101,7 @@ async function readArchive(): Promise<StoredIncident[]> {
     const parsed = JSON.parse(raw) as StoredIncident[];
     if (!Array.isArray(parsed)) return [];
     return parsed;
-  } catch {
+  } catch (_err) {
     return [];
   }
 }
@@ -196,7 +196,7 @@ statusRouter.get("/incidents/:id", async (req, res) => {
 // ----- Background archive refresh worker -----
 
 let lastArchiveRefresh = 0;
-const ARCHIVE_REFRESH_MS = 5 * 60_000;
+const ARCHIVE_REFRESH_MS = 5 * 60000;
 
 async function refreshArchive(): Promise<void> {
   for (const provider of PROVIDERS) {
@@ -210,7 +210,7 @@ async function refreshArchive(): Promise<void> {
       );
       const incidents = Array.isArray(payload) ? payload : payload.incidents ?? [];
       await upsertIncidents(provider.id, provider.name, incidents);
-    } catch {
+    } catch (_err) {
       // Skip — archive only grows; missing fetches aren't destructive.
     } finally {
       clearTimeout(timeout);
@@ -220,7 +220,7 @@ async function refreshArchive(): Promise<void> {
 }
 
 statusRouter.get("/archive/refresh", async (_req, res) => {
-  if (Date.now() - lastArchiveRefresh < 30_000) {
+  if (Date.now() - lastArchiveRefresh < 30000) {
     res.json({ skipped: true, lastArchiveRefresh });
     return;
   }
@@ -231,7 +231,7 @@ statusRouter.get("/archive/refresh", async (_req, res) => {
 // Kick off an initial archive refresh shortly after boot.
 setTimeout(() => {
   void refreshArchive();
-}, 5_000);
+}, 5000);
 setInterval(() => {
   void refreshArchive();
 }, ARCHIVE_REFRESH_MS).unref?.();

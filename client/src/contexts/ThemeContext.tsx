@@ -2,23 +2,29 @@ import React, { createContext, useContext, useEffect } from "react";
 
 type Theme = "dark";
 
-interface ThemeContextType {
+type ThemeContextType = {
   theme: Theme;
   toggleTheme?: () => void;
   switchable: boolean;
-}
+};
 
 const ThemeContext = createContext<ThemeContextType>({
   theme: "dark",
   switchable: false,
 });
 
-export function ThemeProvider({ children }: { children: React.ReactNode; defaultTheme?: string; switchable?: boolean }) {
+export function ThemeProvider({
+  children,
+}: {
+  children: React.ReactNode;
+  defaultTheme?: string;
+  switchable?: boolean;
+}) {
   useEffect(() => {
     document.documentElement.classList.add("dark");
     try {
       window.localStorage.setItem("theme", "dark");
-    } catch {
+    } catch (_err) {
       /* ignore */
     }
   }, []);
@@ -30,6 +36,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode; default
   );
 }
 
-export function useTheme() {
+export function useTheme(): ThemeContextType {
   return useContext(ThemeContext);
 }

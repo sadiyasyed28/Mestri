@@ -18,7 +18,7 @@ import {
 export type { HistoryKind, ProviderConfig, ProviderSnapshot, StatusKind } from "@shared/statusFeeds";
 export { PROVIDERS, createInitialSnapshot, UNKNOWN_HISTORY } from "@shared/statusFeeds";
 
-const FETCH_TIMEOUT_MS = 7_000;
+const FETCH_TIMEOUT_MS = 7000;
 
 async function fetchJson<T>(url: string, signal: AbortSignal): Promise<T> {
   const response = await fetch(url, {
@@ -48,14 +48,14 @@ export async function fetchProviderSnapshot(provider: ProviderConfig): Promise<P
           controller.signal,
         );
         incidents = Array.isArray(payload) ? payload : payload.incidents ?? [];
-      } catch {
+      } catch (_err) {
         incidents = [];
       }
     }
 
     const fetched: FetchedSnapshot = deriveSnapshot(provider, summary, incidents);
     return buildSnapshot(provider, fetched);
-  } catch {
+  } catch (_err) {
     return createManualSnapshot(provider, "Public feed unavailable in this view.");
   } finally {
     window.clearTimeout(timeout);

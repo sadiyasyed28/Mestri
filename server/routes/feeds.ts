@@ -34,7 +34,7 @@ async function readArchive(): Promise<StoredIncident[]> {
     const parsed = JSON.parse(raw) as StoredIncident[];
     if (!Array.isArray(parsed)) return [];
     return parsed;
-  } catch {
+  } catch (_err) {
     return [];
   }
 }
@@ -48,27 +48,46 @@ function escapeXml(s: string): string {
     .replace(/'/g, "&apos;");
 }
 
+function buildSingleItem(incident: StoredIncident): string {
+  const description =
+    incident.updates
+      .slice(0, 3)
+      .map((u) => `<p>${escapeXml(u.body)}</p>`)
+      .join("") || `<p>${escapeXml(incident.name)}</p>`;
+
+  const lines = [
+    "  <item>",
+    `    <title>${escapeXml(incident.providerName)} — ${escapeXml(incident.name)}</title>`,
+    `    <link>https://mestri.dev/i/${encodeURIComponent(incident.id)}</link>`,
+    `    <guid isPermaLink="false">${escapeXml(incident.id)}</guid>`,
+    `    <pubDate>${new Date(incident.updatedAt).toUTCString()}</pubDate>`,
+    `    <category>${escapeXml(incident.status)}</category>`,
+    `    <description><![CDATA[${description}]]></description>`,
+    "  </item>",
+  ];
+  return lines.join("\n");
+}
+
 function buildItems(incidents: StoredIncident[], providerFilter?: string): string {
   const filtered = providerFilter ? incidents.filter((i) => i.providerId === providerFilter) : incidents;
-  return filtered
-    .slice(0, 50)
-    .map((incident) => {
-      const description =
-        incident.updates
-          .slice(0, 3)
-          .map((u) => `<p>${escapeXml(u.body)}</p>`)
-          .join("") ||
-        `<p>${escapeXml(incident.name)}</p>`;
-      return `<item>
-    <title>${escapeXml(incident.providerName)} — ${escapeXml(incident.name)}</title>
-    <link>https://mestri.dev/i/${escapeXml(incident.id)}</link>
-    <guid isPermaLink="false">${escapeXml(incident.id)}</guid>
-    <pubDate>${new Date(incident.updatedAt).toUTCString()}</pubDate>
-    <category>${escapeXml(incident.status)}</category>
-    <description><![CDATA[${description}]]></description>
-  </item>`;
-    })
-    .join("\n");
+  return filtered.slice(0, 50).map(buildSingleItem).join("\n");
+}
+
+function renderRssXml(title: string, description: string, items: string): string {
+  const lines = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<rss version="2.0">',
+    "<channel>",
+    `  <title>${title}</title>`,
+    "  <link>https://mestri.dev/</link>",
+    `  <description>${description}</description>`,
+    "  <language>en</language>",
+    `  <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>`,
+    items ? items : "",
+    "</channel>",
+    "</rss>",
+  ];
+  return lines.filter(Boolean).join("\n");
 }
 
 export const feedRouter = Router();
@@ -78,17 +97,7 @@ feedRouter.get("/all.xml", async (_req, res) => {
   const items = buildItems(archive);
   res.set("Content-Type", "application/rss+xml; charset=utf-8");
   res.set("Cache-Control", "public, max-age=60");
-  res.send(`<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-<channel>
-  <title>mestri — all incidents</title>
-  <link>https://mestri.dev/</link>
-  <description>Aggregated incident feed across all monitored AI providers.</description>
-  <language>en</language>
-  <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-  ${items}
-</channel>
-</rss>`);
+  res.send(renderRssXml("mestri — all incidents", "Aggregated incident feed across all monitored AI providers.", items));
 });
 
 feedRouter.get("/:providerId.xml", async (req, res) => {
@@ -98,15 +107,5 @@ feedRouter.get("/:providerId.xml", async (req, res) => {
   const items = buildItems(archive, providerId);
   res.set("Content-Type", "application/rss+xml; charset=utf-8");
   res.set("Cache-Control", "public, max-age=60");
-  res.send(`<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
-<channel>
-  <title>mestri — ${escapeXml(providerName)} incidents</title>
-  <link>https://mestri.dev/</link>
-  <description>Incident feed for ${escapeXml(providerName)}.</description>
-  <language>en</language>
-  <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-  ${items}
-</channel>
-</rss>`);
+  res.send(renderRssXml(`mestri — ${escapeXml(providerName)} incidents`, `Incident feed for ${escapeXml(providerName)}.`, items));
 });

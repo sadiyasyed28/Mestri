@@ -34,7 +34,7 @@ async function readJson<T>(file: string, fallback: T): Promise<T> {
   try {
     const raw = await fs.readFile(file, "utf-8");
     return JSON.parse(raw) as T;
-  } catch {
+  } catch (_err) {
     return fallback;
   }
 }
@@ -97,7 +97,7 @@ notificationRouter.delete("/:id", async (req, res) => {
 // ----- Transition detection + delivery -----
 
 const RECENT_DELIVERIES = new Map<string, number>();
-const DELIVERY_COOLDOWN_MS = 5 * 60_000;
+const DELIVERY_COOLDOWN_MS = 5 * 60000;
 
 async function deliverWebhook(target: string, payload: unknown): Promise<boolean> {
   try {
@@ -107,7 +107,7 @@ async function deliverWebhook(target: string, payload: unknown): Promise<boolean
       body: JSON.stringify(payload),
     });
     return resp.ok;
-  } catch {
+  } catch (_err) {
     return false;
   }
 }
@@ -138,7 +138,7 @@ export async function detectAndDeliver(providerId: string, current: ProviderStat
     oldStatus: previous.status,
     newStatus: current.status,
     message: current.message ?? "",
-    mestriUrl: `https://mestri.dev/`,
+    mestriUrl: "https://mestri.dev/",
   };
 
   for (const sub of matching) {
