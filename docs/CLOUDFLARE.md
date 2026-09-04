@@ -166,5 +166,25 @@ const db = createDb(env.DB);
 - **Subscriptions**: `getSubscriptions`, `getSubscription`, `createSubscription`, `deleteSubscription`
 - **Provider State**: `getProviderState`, `upsertProviderState`
 
-> ⚠️ **Important Note**: 
 > The existing Express routes continue to use JSON filesystem persistence for now. Route migration will happen progressively in subsequent phases. This abstraction layer simply prepares the underlying D1 interface for that future migration.
+
+---
+
+## 9. Status System Migration (Phase 4)
+
+The Cloudflare Worker now actively processes the `GET /api/status` endpoint, acting as a functional edge layer while maintaining strict response contract compatibility with the existing frontend. 
+
+**Persistence Strategy:**
+- **`provider_state`**: Replaces the persistence role of `data/last-status.json` in the Worker runtime. It tracks the latest status transition and ensures fast state recovery across Worker cold starts and deployments.
+- **`status_snapshots`**: Persists all successful checks that contribute to the historical log, replacing the need for an in-memory-only or JSON-bound archive log.
+- **Cache Behavior**: D1 serves as the absolute source of truth. An optional, short-lived (60s TTL) memory map caches the latest results within an isolate to prevent redundant upstream fetches, mirroring the original Express backend behavior.
+- **30-Day History**: History retrieval remains strictly bounded to approximately 30 days of retained snapshots (per the original `UNKNOWN_HISTORY` length).
+
+**Express/Worker Boundary:**
+The existing Express backend (serving `server/index.ts`) safely remains active using the legacy JSON filesystem. The Cloudflare Worker handles its own independent persistence via D1. There is no bidirectional synchronization between the two—each operates independently in its respective runtime.
+
+**Derivable Real Metrics:**
+With D1 active for status persistence, the following operational metrics can now be accurately derived directly via SQL (without fabricating data):
+- Total number of monitored providers (`SELECT COUNT(*) FROM providers`)
+- Total number of successful/failed status checks over time (`SELECT COUNT(*) FROM status_snapshots`)
+- Availability tracking (by joining `provider_state` and `status_snapshots`)
