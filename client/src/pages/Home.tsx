@@ -14,7 +14,6 @@ import {
 import { Button } from "@/components/ui/button";
 import {
   createInitialSnapshot,
-  fetchProviderSnapshot,
   PROVIDERS,
   type HistoryKind,
   type ProviderConfig,
@@ -180,28 +179,38 @@ export default function Home() {
   const initialSnapshots = useMemo(
     () =>
       Object.fromEntries(
-        PROVIDERS.map((provider) => [provider.id, createInitialSnapshot(provider)]),
+        PROVIDERS.map((provider) => [
+          provider.id,
+          createInitialSnapshot(provider),
+        ]),
       ) as Record<string, ProviderSnapshot>,
     [],
   );
-  const [snapshots, setSnapshots] = useState(initialSnapshots);
+  const [snapshots, setSnapshots] = useState<Record<string, ProviderSnapshot>>(initialSnapshots);
   const [isRefreshing, setIsRefreshing] = useState(true);
-  // Two distinct timestamps: when we last *attempted* a refresh (UI display),
-  // and when at least one provider returned successfully (the honest signal).
   const [lastAttempt, setLastAttempt] = useState<Date>(() => new Date());
   const [lastSuccess, setLastSuccess] = useState<Date | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const loadSnapshots = useCallback(async () => {
     setIsRefreshing(true);
     setLastAttempt(new Date());
-    const entries = await Promise.all(
-      PROVIDERS.map(async (provider) => [provider.id, await fetchProviderSnapshot(provider)] as const),
-    );
-    const next = Object.fromEntries(entries) as Record<string, ProviderSnapshot>;
-    setSnapshots(next);
-    setLastSuccess(new Date());
-    setIsRefreshing(false);
-  }, []);
+    setError(null);
+    try {
+      const res = await fetch("/api/status");
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = (await res.json()) as Record<string, ProviderSnapshot>;
+      
+      // Merge with initial snapshots to ensure every provider has an entry
+      setSnapshots({ ...initialSnapshots, ...data });
+      setLastSuccess(new Date());
+    } catch (err) {
+      console.error("Failed to load snapshots:", err);
+      setError("Failed to fetch provider status");
+    } finally {
+      setIsRefreshing(false);
+    }
+  }, [initialSnapshots]);
 
   useEffect(() => {
     void loadSnapshots();
@@ -240,11 +249,17 @@ export default function Home() {
               One quiet place to check whether the AI tools you rely on are up, degraded, or
               having a difficult day.
             </p>
-            <div className="checked-note">
-              <span>{stampLabel}</span>
-              <strong>{displayStamp.toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit" })}</strong>
-              <span className="timezone">local time</span>
-            </div>
+            {error ? (
+              <div className="checked-note">
+                <span className="text-red-500">{error}</span>
+              </div>
+            ) : (
+              <div className="checked-note">
+                <span>{stampLabel}</span>
+                <strong>{displayStamp.toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit" })}</strong>
+                <span className="timezone">local time</span>
+              </div>
+            )}
           </div>
         </section>
 

@@ -312,5 +312,24 @@ The API prefix (`/api/`) acts as a hard boundary. If a request hits `/api/does-n
 **Static Asset Configuration:**
 Configured via `assets = { directory = "./dist", binding = "ASSETS" }` in `wrangler.toml`, relying entirely on Cloudflare's supported asset distribution mechanism.
 
+---
+
+## 15. Frontend Integration (Phase 10)
+
+Phase 10 aligns the built React SPA to natively consume the Cloudflare Worker API. 
+
+**API Consumption Strategy:**
+- The frontend now exclusively uses relative, same-origin API URLs (e.g., `fetch("/api/status")`).
+- Zero reliance on `localhost` or hardcoded production domains (like Vercel).
+- Direct requests to public Provider Statuspage URLs have been removed from the client; the client relies on the Worker backend to provide the aggregated snapshot data.
+
+**Missing Worker Endpoints:**
+- Currently, there is NO frontend dependency on `/api/providers`. The static provider list in `@shared/statusFeeds.ts` remains the source of truth for the client.
+- `GET /api/status`, `GET /api/incidents`, and `GET /api/incidents/:id` are correctly configured and returning standard contracts.
+
+**Validation:**
+- No visual or UX changes were introduced.
+- Strict tests added (`frontendIntegration.test.ts`) to ensure absence of leaked development backend URLs in source code.
+
 > [!WARNING]
 > Production deployment has **not** occurred yet. The Express backend and Vercel configuration remain perfectly usable for active development.
