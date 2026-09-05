@@ -42,6 +42,7 @@ describe("Worker Routing (Phase 9)", () => {
   };
 
   beforeEach(() => {
+    global.fetch = vi.fn().mockResolvedValue({ ok: true, json: async () => ({}), text: async () => "" });
     mockEnv = { 
       DB: createMockDb(),
       ASSETS: createMockAssets(),
