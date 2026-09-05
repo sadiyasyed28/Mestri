@@ -3,6 +3,8 @@
 export type StatusKind = "operational" | "degraded" | "outage" | "manual";
 export type HistoryKind = Exclude<StatusKind, "manual"> | "unknown";
 
+export type ProviderAdapter = "statuspage" | "rss" | "instatus" | "google-cloud" | "manual";
+
 export type ProviderConfig = {
   id: string;
   name: string;
@@ -10,6 +12,7 @@ export type ProviderConfig = {
   sourceLabel: string;
   sourceUrl: string;
   feedUrl?: string;
+  adapter?: ProviderAdapter;
   incidentsUrl?: string;
   accent: string;
   monogram: string;
@@ -74,6 +77,7 @@ export const PROVIDERS: ProviderConfig[] = [
     sourceLabel: "status.openai.com",
     sourceUrl: "https://status.openai.com/",
     feedUrl: "https://status.openai.com/api/v2/summary.json",
+    adapter: "statuspage",
     accent: "#111111",
     monogram: "O",
   },
@@ -84,6 +88,7 @@ export const PROVIDERS: ProviderConfig[] = [
     sourceLabel: "status.claude.com",
     sourceUrl: "https://status.claude.com/",
     feedUrl: "https://status.claude.com/api/v2/summary.json",
+    adapter: "statuspage",
     accent: "#9D5F35",
     monogram: "A",
   },
@@ -93,7 +98,8 @@ export const PROVIDERS: ProviderConfig[] = [
     service: "Grok + API",
     sourceLabel: "status.x.ai",
     sourceUrl: "https://status.x.ai/",
-    feedUrl: "https://status.x.ai/api/v2/summary.json",
+    feedUrl: "https://status.x.ai/feed.xml",
+    adapter: "rss",
     accent: "#111111",
     monogram: "X",
   },
@@ -101,9 +107,10 @@ export const PROVIDERS: ProviderConfig[] = [
     id: "google",
     name: "Google",
     service: "Gemini + AI Studio",
-    sourceLabel: "aistudio.google.com/status",
-    sourceUrl: "https://aistudio.google.com/status",
-    manualOnly: true,
+    sourceLabel: "status.cloud.google.com",
+    sourceUrl: "https://status.cloud.google.com/",
+    feedUrl: "https://status.cloud.google.com/incidents.json",
+    adapter: "google-cloud",
     accent: "#4285F4",
     monogram: "G",
   },
@@ -113,7 +120,8 @@ export const PROVIDERS: ProviderConfig[] = [
     service: "Le Chat + API",
     sourceLabel: "status.mistral.ai",
     sourceUrl: "https://status.mistral.ai/",
-    feedUrl: "https://status.mistral.ai/api/v2/summary.json",
+    feedUrl: "https://status.mistral.ai/api/v1/summary.json",
+    adapter: "instatus",
     accent: "#F15A29",
     monogram: "M",
   },
@@ -124,6 +132,7 @@ export const PROVIDERS: ProviderConfig[] = [
     sourceLabel: "status.cohere.com",
     sourceUrl: "https://status.cohere.com/",
     feedUrl: "https://status.cohere.com/api/v2/summary.json",
+    adapter: "statuspage",
     accent: "#39594D",
     monogram: "C",
   },
@@ -133,7 +142,8 @@ export const PROVIDERS: ProviderConfig[] = [
     service: "Inference + Hub",
     sourceLabel: "status.huggingface.co",
     sourceUrl: "https://status.huggingface.co/",
-    feedUrl: "https://status.huggingface.co/api/v2/summary.json",
+    feedUrl: "https://status.huggingface.co/feed.rss",
+    adapter: "rss",
     accent: "#FFD21E",
     monogram: "H",
   },
@@ -144,13 +154,58 @@ export const PROVIDERS: ProviderConfig[] = [
     sourceLabel: "status.replicate.com",
     sourceUrl: "https://status.replicate.com/",
     feedUrl: "https://status.replicate.com/api/v2/summary.json",
+    adapter: "statuspage",
     accent: "#000000",
     monogram: "R",
   },
+  {
+    id: "groq",
+    name: "Groq",
+    service: "Groq Cloud + API",
+    sourceLabel: "status.groq.com",
+    sourceUrl: "https://status.groq.com/",
+    adapter: "manual",
+    manualOnly: true,
+    accent: "#F55036",
+    monogram: "GQ",
+  },
+  {
+    id: "perplexity",
+    name: "Perplexity",
+    service: "Search + API",
+    sourceLabel: "status.perplexity.ai",
+    sourceUrl: "https://status.perplexity.ai/",
+    adapter: "manual",
+    manualOnly: true,
+    accent: "#22B8CD",
+    monogram: "P",
+  },
+  {
+    id: "deepseek",
+    name: "DeepSeek",
+    service: "DeepSeek API",
+    sourceLabel: "status.deepseek.com",
+    sourceUrl: "https://status.deepseek.com/",
+    feedUrl: "https://status.deepseek.com/history.rss",
+    adapter: "rss",
+    accent: "#4D6BFE",
+    monogram: "D",
+  },
+  {
+    id: "elevenlabs",
+    name: "ElevenLabs",
+    service: "Voice + API",
+    sourceLabel: "status.elevenlabs.io",
+    sourceUrl: "https://status.elevenlabs.io/",
+    feedUrl: "https://status.elevenlabs.io/api/v2/summary.json",
+    adapter: "statuspage",
+    accent: "#000000",
+    monogram: "E",
+  }
 ];
 
 for (const p of PROVIDERS) {
-  if (p.feedUrl && !p.incidentsUrl) {
+  if (p.adapter === "statuspage" && p.feedUrl && !p.incidentsUrl) {
     p.incidentsUrl = deriveIncidentsUrl(p.feedUrl);
   }
 }
@@ -261,6 +316,9 @@ export function deriveSnapshot(
   summary: StatusPageSummary,
   incidents: StatusPageIncident[],
 ): FetchedSnapshot {
+  if (!summary || (!summary.status && !summary.components)) {
+    throw new Error("Malformed provider summary response");
+  }
   const currentStatus = summaryStatus(summary);
   const latestIncident = incidents[0];
   const latestUpdate = latestIncident?.incident_updates?.[0];

@@ -1,0 +1,17 @@
+name = "mestri"
+main = "server/worker.ts"
+compatibility_date = "2024-09-02"
+compatibility_flags = ["nodejs_compat"]
+
+# D1 Database placeholder binding for future phases
+[[d1_databases]]
+binding = "DB"
+database_name = "mestri-db"
+database_id = "29cdacff-12c0-44fe-b5fe-5665754e2a6c"
+
+[triggers]
+crons = ["*/5 * * * *"]
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"

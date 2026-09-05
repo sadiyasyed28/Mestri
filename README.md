@@ -10,7 +10,8 @@
   </a>
 </p>
 
----
+## Live Demo
+Check out the live production deployment at: [https://mestri.mestri.workers.dev](https://mestri.mestri.workers.dev)
 
 ## ✨ What is Mestri?
 

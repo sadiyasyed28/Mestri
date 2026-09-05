@@ -222,7 +222,7 @@ describe("PROVIDERS", () => {
 
   it("derives an incidentsUrl for every provider with a feedUrl", () => {
     for (const p of PROVIDERS) {
-      if (p.feedUrl) {
+      if (p.adapter === "statuspage" && p.feedUrl) {
         expect(p.incidentsUrl, `${p.id} should have an incidentsUrl`).toBeTruthy();
       }
     }
