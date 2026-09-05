@@ -1,7 +1,7 @@
 import type { D1Database, ExecutionContext, ScheduledController, Fetcher } from "@cloudflare/workers-types";
 import { getWorkerStatus } from "./workerStatus";
-import { getWorkerIncidents, getWorkerIncident, refreshWorkerArchive } from "./workerIncidents";
-import { getWorkerSubscriptions, createWorkerSubscription, deleteWorkerSubscription } from "./workerNotifications";
+import { getWorkerIncidents, getWorkerIncident } from "./workerIncidents";
+import { createWorkerSubscription } from "./workerNotifications";
 import { handleFeedsAll, handleFeedsProvider, handleSitemap, handleRobots } from "./workerContent";
 import { runMonitoringCycle } from "./cron";
 
@@ -102,62 +102,27 @@ export default {
       }
     }
 
-    if (url.pathname === "/api/archive/refresh" && request.method === "GET") {
-      if (!env.DB) return missingDbResponse();
-      try {
-        await refreshWorkerArchive(env.DB);
-        return new Response(JSON.stringify({ ok: true, timestamp: Date.now() }), {
-          headers: { "Content-Type": "application/json" },
-        });
-      } catch (err: any) {
-        return errorResponse(err);
-      }
-    }
 
-    if (url.pathname === "/api/notifications") {
+    if (url.pathname === "/api/notifications" && request.method === "POST") {
       if (!env.DB) return missingDbResponse();
       try {
-        if (request.method === "GET") {
-          const subs = await getWorkerSubscriptions(env.DB);
-          return new Response(JSON.stringify(subs), {
-            headers: {
-              "Content-Type": "application/json",
-              "Cache-Control": "no-store",
-            },
-          });
-        }
-        
-        if (request.method === "POST") {
-          const body = await request.json() as any;
-          const result = await createWorkerSubscription(env.DB, body);
-          if ("error" in result) {
-            return new Response(JSON.stringify({ error: result.error }), {
-              status: 400,
-              headers: { "Content-Type": "application/json" }
-            });
-          }
-          return new Response(JSON.stringify(result), {
-            status: 201,
+        const body = await request.json() as any;
+        const result = await createWorkerSubscription(env.DB, body);
+        if ("error" in result) {
+          return new Response(JSON.stringify({ error: result.error }), {
+            status: 400,
             headers: { "Content-Type": "application/json" }
           });
         }
-      } catch (err: any) {
-        return errorResponse(err);
-      }
-    }
-
-    if (url.pathname.startsWith("/api/notifications/") && request.method === "DELETE") {
-      if (!env.DB) return missingDbResponse();
-      try {
-        const id = url.pathname.replace("/api/notifications/", "");
-        const result = await deleteWorkerSubscription(env.DB, id);
         return new Response(JSON.stringify(result), {
-          headers: { "Content-Type": "application/json" },
+          status: 201,
+          headers: { "Content-Type": "application/json" }
         });
       } catch (err: any) {
         return errorResponse(err);
       }
     }
+
 
     // --- Phase 8: Content Surfaces ---
     if (request.method === "GET") {

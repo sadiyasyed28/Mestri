@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { getWorkerSubscriptions, createWorkerSubscription, deleteWorkerSubscription, deliverWebhook, logEmailStub } from "../workerNotifications";
+import { getWorkerSubscriptions, createWorkerSubscription, deleteWorkerSubscription, deliverWebhook, logEmailStub, isSafeWebhookUrl } from "../workerNotifications";
 import type { D1Database } from "@cloudflare/workers-types";
 
 global.fetch = vi.fn();
@@ -154,5 +154,47 @@ describe("Worker Notifications Routes", () => {
       { message: "hello" }
     );
     consoleSpy.mockRestore();
+  });
+
+  describe("SSRF Protection", () => {
+    it("should allow valid public HTTPS URLs", () => {
+      expect(isSafeWebhookUrl("https://example.com/webhook")).toBe(true);
+      expect(isSafeWebhookUrl("https://api.github.com/v1/test")).toBe(true);
+      expect(isSafeWebhookUrl("https://1.1.1.1")).toBe(true);
+    });
+
+    it("should reject localhost", () => {
+      expect(isSafeWebhookUrl("http://localhost/hook")).toBe(false);
+      expect(isSafeWebhookUrl("http://localhost:8080")).toBe(false);
+    });
+
+    it("should reject IPv4 loopback and private ranges", () => {
+      expect(isSafeWebhookUrl("http://127.0.0.1/")).toBe(false);
+      expect(isSafeWebhookUrl("http://10.0.0.1/")).toBe(false);
+      expect(isSafeWebhookUrl("http://192.168.1.1/")).toBe(false);
+      expect(isSafeWebhookUrl("http://169.254.169.254/")).toBe(false);
+      expect(isSafeWebhookUrl("http://172.16.0.1/")).toBe(false);
+      expect(isSafeWebhookUrl("http://172.31.255.255/")).toBe(false);
+      expect(isSafeWebhookUrl("http://0.0.0.0/")).toBe(false);
+    });
+
+    it("should reject IPv6 loopback and private ranges", () => {
+      expect(isSafeWebhookUrl("http://[::1]/")).toBe(false);
+      expect(isSafeWebhookUrl("http://[fc00::1]/")).toBe(false);
+      expect(isSafeWebhookUrl("http://[fd00:1234::]/")).toBe(false);
+      expect(isSafeWebhookUrl("http://[fe80::1]/")).toBe(false);
+    });
+
+    it("should reject userinfo in URL", () => {
+      expect(isSafeWebhookUrl("https://user:pass@example.com/")).toBe(false);
+      expect(isSafeWebhookUrl("https://user@example.com/")).toBe(false);
+    });
+
+    it("should reject decimal and hex IP forms", () => {
+      expect(isSafeWebhookUrl("http://2130706433/")).toBe(false); // 127.0.0.1
+      expect(isSafeWebhookUrl("http://0x7f000001/")).toBe(false); // 127.0.0.1
+      expect(isSafeWebhookUrl("http://0x7f.0.0.1/")).toBe(false);
+      expect(isSafeWebhookUrl("http://0177.0.0.1/")).toBe(false); // octal
+    });
   });
 });
