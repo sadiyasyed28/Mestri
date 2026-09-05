@@ -55,6 +55,7 @@ function statusLabel(status: StatusKind) {
   if (status === "operational") return "Operational";
   if (status === "degraded") return "Degraded";
   if (status === "outage") return "Outage";
+  if (status === "manual") return "Manual monitoring";
   return "Feed unavailable";
 }
 
@@ -62,6 +63,7 @@ function statusCopy(status: StatusKind) {
   if (status === "operational") return "No active incident";
   if (status === "degraded") return "Active degradation";
   if (status === "outage") return "Active outage";
+  if (status === "manual") return "Source check required";
   return "Feed unavailable";
 }
 
