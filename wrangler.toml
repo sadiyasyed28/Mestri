@@ -7,7 +7,7 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding = "DB"
 database_name = "mestri-db"
-database_id = "placeholder-database-id"
+database_id = "29cdacff-12c0-44fe-b5fe-5665754e2a6c"
 
 [triggers]
 crons = ["*/5 * * * *"]
